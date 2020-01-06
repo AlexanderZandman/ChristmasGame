@@ -23,7 +23,8 @@ public class Game
     private Room currentRoom;
     private ArrayList rooms;
     private Random random;
-        
+    private ArrayList<Item> inventory = new ArrayList<Item>();
+    private Item bmw = new Item("BMW", "Dikke BMW", 2, 2 );   
     /**
      * Create the game and initialise its internal map.
      */
@@ -132,8 +133,32 @@ public class Game
             case QUIT:
                 wantToQuit = quit(command);
                 break;
+            case INVENTORY:
+                showInventory();
+                break;
+            
+            case PICKUP:
+                pickupItem();
+                break;
         }
         return wantToQuit;
+    }
+    public void showInventory()
+    {
+        for(Item item : inventory){
+        String name = bmw.getName();
+        String description = bmw.getDescription();
+        int amount = bmw.getAmount();
+        int weight = bmw.getWeight();
+        System.out.println("Item name: " + name);
+        System.out.println("Description: " + description);
+        System.out.println("Amount " + amount);
+        System.out.println("Weight: " + weight);
+        }
+    }
+    public void pickupItem()
+    {
+        inventory.add(bmw);
     }
 
     // implementations of user commands:
