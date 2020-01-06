@@ -24,7 +24,6 @@ public class Game
     private ArrayList rooms;
     private Random random;
     private ArrayList<Item> inventory = new ArrayList<Item>();
-    private Item bmw = new Item("BMW", "Dikke BMW", 2, 2 );   
     /**
      * Create the game and initialise its internal map.
      */
@@ -43,6 +42,7 @@ public class Game
         
         Room main, puzzle, key, third, fourth, fifth;
         Character Santa;
+        Item bmw = new Item("BMW", "Dikke BMW", 2, 2 ); 
         //rooms = new ArrayList<Room>();
         // create the rooms
         main = new Room("Main room");
@@ -60,12 +60,13 @@ public class Game
         //rooms.add(fifth); */
         
         
-        // initialise room exits
+        // initialise room exits and characters, items
         main.setExit("east", puzzle);
         main.setExit("south", third);
+        // sets characters in rooms
         Santa = new Character("Santa", "I am santa and you better run");         
         main.setCharacter(Santa);
-        
+        main.setItem(bmw);
         puzzle.setExit("west", main);
         puzzle.setExit("south", key);
         
@@ -146,10 +147,10 @@ public class Game
     public void showInventory()
     {
         for(Item item : inventory){
-        String name = bmw.getName();
-        String description = bmw.getDescription();
-        int amount = bmw.getAmount();
-        int weight = bmw.getWeight();
+        String name = item.item_getName();
+        String description = item.item_getDescription();
+        int amount = item.item_getAmount();
+        int weight = item.item_getWeight();
         System.out.println("Item name: " + name);
         System.out.println("Description: " + description);
         System.out.println("Amount " + amount);
@@ -158,7 +159,7 @@ public class Game
     }
     public void pickupItem()
     {
-        inventory.add(bmw);
+        System.out.println(currentRoom.getItem());
     }
 
     // implementations of user commands:
