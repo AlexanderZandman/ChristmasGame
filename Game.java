@@ -23,7 +23,7 @@ public class Game
     private Room currentRoom;
     private ArrayList rooms;
     private Random random;
-        
+
     /**
      * Create the game and initialise its internal map.
      */
@@ -33,13 +33,13 @@ public class Game
         parser = new Parser();
         //comment om te testen
     }
+
     /**
      * Create all the rooms and link their exits together.
      */
     private void createRooms()
     {
-        
-        
+
         Room main, puzzle, key, third, fourth, fifth;
         Character Santa;
         //rooms = new ArrayList<Room>();
@@ -50,27 +50,26 @@ public class Game
         third = new Room("in the campus pub");
         //fourth = new Room("in a computing lab");
         //fifth = new Room("in the computing admin office");
-        
+
         /*rooms.add(main);
         rooms.add(puzzle);
         rooms.add(key);
         rooms.add(third);
         //rooms.add(fourth);
         //rooms.add(fifth); */
-        
-        
+
         // initialise room exits
         main.setExit("east", puzzle);
         main.setExit("south", third);
         Santa = new Character("Santa", "I am santa and you better run");         
-        main.setCharacter(Santa,main);
-        
+        main.setCharacter(Santa);
+
         puzzle.setExit("west", main);
         puzzle.setExit("south", key);
-        
+
         key.setExit("south", third);
         third.setExit("west", main); 
-        
+
         currentRoom = main;
     }
 
@@ -83,7 +82,7 @@ public class Game
 
         // Enter the main command loop.  Here we repeatedly read commands and
         // execute them until the game is over.
-                
+
         boolean finished = false;
         while (! finished) {
             Command command = parser.getCommand();
@@ -118,20 +117,24 @@ public class Game
 
         switch (commandWord) {
             case UNKNOWN:
-                System.out.println("I don't know what you mean...");
-                break;
+            System.out.println("I don't know what you mean...");
+            break;
 
             case HELP:
-                printHelp();
-                break;
+            printHelp();
+            break;
 
             case GO:
-                goRoom(command);
-                break;
+            goRoom(command);
+            break;
+
+            case TALK:
+            talkTo(command);
+            break;
 
             case QUIT:
-                wantToQuit = quit(command);
-                break;
+            wantToQuit = quit(command);
+            break;
         }
         return wantToQuit;
     }
@@ -178,6 +181,34 @@ public class Game
         }
     }
 
+    private void talkTo(Command command) 
+    {
+        if(!command.hasSecondWord()) {
+            // if there is no second word, we don't know who to talk to
+            System.out.println("Talk to who?");
+            return;
+        }
+
+        String npc = command.getSecondWord();
+        Character npc2 = currentRoom.getCharacter();
+
+        if (npc.equals(npc2.getCharacterName())){
+            if (npc2.getCharacterText() != null){
+                System.out.println(npc2.getCharacterText());
+            }
+            else{
+                System.out.println("This person cannot talk");
+            }
+        }
+        else{
+            System.out.println("This character is not in this room");
+        }
+        
+        
+        // Try to leave current room.
+        //Room nextRoom = currentRoom.getExit(direction);
+
+    }
     /** 
      * "Quit" was entered. Check the rest of the command to see
      * whether we really quit the game.

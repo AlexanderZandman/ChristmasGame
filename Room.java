@@ -51,6 +51,11 @@ public class Room
     {
         npcs.add(character);
     }
+    
+    public Character getCharacter(){
+        return npcs.get(0);
+    }
+    
     /**
      * @return The short description of the room
      * (the one that was defined in the constructor).
