@@ -31,6 +31,7 @@ public class Game
     {
         createRooms();
         parser = new Parser();
+        //comment om te testen
     }
     /**
      * Create all the rooms and link their exits together.
