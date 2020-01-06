@@ -41,12 +41,13 @@ public class Game
         
         
         Room main, puzzle, key, third, fourth, fifth;
+        Character Santa;
         //rooms = new ArrayList<Room>();
         // create the rooms
-        main = new Room("Main room","Santa crying in the corner");
-        puzzle = new Room("in a puzzle room",null);
-        key = new Room("Find the hidden key",null);
-        third = new Room("in the campus pub",null);
+        main = new Room("Main room");
+        puzzle = new Room("in a puzzle room");
+        key = new Room("Find the hidden key");
+        third = new Room("in the campus pub");
         //fourth = new Room("in a computing lab");
         //fifth = new Room("in the computing admin office");
         
@@ -61,6 +62,8 @@ public class Game
         // initialise room exits
         main.setExit("east", puzzle);
         main.setExit("south", third);
+        Santa = new Character("Santa", "I am santa and you better run");         
+        main.setCharacter(Santa,main);
         
         puzzle.setExit("west", main);
         puzzle.setExit("south", key);
