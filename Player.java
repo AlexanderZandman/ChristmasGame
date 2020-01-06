@@ -7,8 +7,8 @@ import java.util.ArrayList;
  */
 public class Player
 {
-    private ArrayList<Items> inventory;
-    public Player(ArrayList<Items> inventory){
+    private ArrayList<Item> inventory;
+    public Player(ArrayList<Item> inventory){
         this.inventory = inventory;
     }
     

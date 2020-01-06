@@ -63,7 +63,7 @@ public class Game
         main.setExit("east", puzzle);
         main.setExit("south", third);
         Santa = new Character("Santa", "I am santa and you better run");         
-        main.setCharacter(Santa,main);
+        main.setCharacter(Santa);
         
         puzzle.setExit("west", main);
         puzzle.setExit("south", key);

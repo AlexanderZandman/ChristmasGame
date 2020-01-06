@@ -5,7 +5,7 @@
  * @author (your name)
  * @version (a version number or a date)
  */
-public class Items
+public class Item
 {
     private String itemName;
     private String itemDescription;
@@ -14,7 +14,7 @@ public class Items
     /**
      * Constructor for objects of class Items
      */
-    public Items(String itemName, String itemDescription, int itemAmount, int itemWeight)
+    public Item(String itemName, String itemDescription, int itemAmount, int itemWeight)
     {
         this.itemName = itemName;
         this.itemDescription = itemDescription;
