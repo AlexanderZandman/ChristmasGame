@@ -39,13 +39,13 @@ public class Game
     {
         
         
-        Room main, puzzle, key, math, fourth, fifth;
+        Room main, puzzle, key, third, fourth, fifth;
         //rooms = new ArrayList<Room>();
         // create the rooms
         main = new Room("Main room","Santa crying in the corner");
         puzzle = new Room("in a puzzle room",null);
         key = new Room("Find the hidden key",null);
-        math = new Room("You find yourself in some sort of classroom an elf that is dressed like a math teacher stands in the corner do you want to interact with it?", null);
+        third = new Room("in the campus pub",null);
         //fourth = new Room("in a computing lab");
         //fifth = new Room("in the computing admin office");
         
@@ -59,13 +59,13 @@ public class Game
         
         // initialise room exits
         main.setExit("east", puzzle);
-        main.setExit("south", math);
+        main.setExit("south", third);
         
         puzzle.setExit("west", main);
         puzzle.setExit("south", key);
         
-        key.setExit("south", math);
-        math.setExit("west", main); 
+        key.setExit("south", third);
+        third.setExit("west", main); 
         
         currentRoom = main;
     }
@@ -128,7 +128,6 @@ public class Game
             case QUIT:
                 wantToQuit = quit(command);
                 break;
-                
         }
         return wantToQuit;
     }
@@ -148,7 +147,7 @@ public class Game
         System.out.println("Your command words are:");
         parser.showCommands();
     }
-            
+
     /** 
      * Try to go in one direction. If there is an exit, enter the new
      * room, otherwise print an error message.
