@@ -46,7 +46,7 @@ public class Game
         upstairs, minefield;
         
         //initialize characters
-        Character santa, waterElf, sleepingElf;    
+        Character santa, waterElf, sleepingElf, mathElf;    
         
         // create the rooms
         main = new Room("in the main entrance room.\n Santa is crying in the corner");
@@ -55,10 +55,10 @@ public class Game
         key = new Room("Find the hidden key");
         sleepingelfroom = new Room("in a dark room.\n You see a table with "+
         "some ingredients and a paper.\n There is a fat elf sleeping(SleepingElf) in the corner");
-        maths = new Room("");
+        maths = new Room("in math classroom. There is an elf, who is dressed like a teacher, standing behind a desk");
         tableorder = new Room("");
         upstairs = new Room("Upstairs Room");
-        minefield =new Room("boom");
+        minefield =new Room("in a traproom, proceed carefully as there are mines layed out in this room");
         
         //add items, characters and exits to rooms
         
@@ -103,6 +103,11 @@ public class Game
         sleepingelfroom.setExit("north",main);
         sleepingelfroom.setExit("west",maths);
         sleepingelfroom.setExit("east",tableorder);
+        
+        //minefield room
+        Random r = new Random();
+        ArrayList<Integer> savetiles = new ArrayList<Integer>();
+        
 
         currentRoom = main;
     }
@@ -137,7 +142,6 @@ public class Game
         System.out.println();
         System.out.println(currentRoom.getLongDescription());
     }
-
     /**
      * Given a command, process (that is: execute) the command.
      * @param command The command to be processed.
@@ -186,6 +190,9 @@ public class Game
     }
     public void showInventory()
     {
+        if(inventory.size() < 1){
+        System.out.println("Your inventory is empty");
+        }else{
         for(Item item : inventory){
         String name = item.item_getName();
         String description = item.item_getDescription();
@@ -196,6 +203,7 @@ public class Game
         System.out.println("Amount " + amount);
         System.out.println("Weight: " + weight);
         }
+    }
     }
     public void pickupItem()
     {
@@ -247,6 +255,10 @@ public class Game
             System.out.println(currentRoom.getLongDescription());
         }
 
+    }
+    private int getRandomNumber(int min, int max){
+        Random r = new Random();
+        return r.nextInt((max - min) +1) + min;
     }
 
     private void talkTo(Command command) 
