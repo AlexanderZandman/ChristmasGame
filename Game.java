@@ -41,46 +41,68 @@ public class Game
      */
     private void createRooms()
     {
-
-        Room main, puzzle, key, third, fourth, fifth;
-        Character Santa;
+        //initialize rooms
+        Room main, waterpuzzle, key, sleepingelfroom, maths, tableorder,
+        upstairs, minefield;
+        
+        //initialize characters
+        Character santa, waterElf, sleepingElf;    
+        
+        // create the rooms
+        main = new Room("in the main entrance room.\n Santa is crying in the corner");
+        waterpuzzle = new Room("in a puzzle room.\n you see a table with "+
+        "containers and a sink.\n An Elf is standing in front of you");
+        key = new Room("Find the hidden key");
+        sleepingelfroom = new Room("in a dark room.\n You see a table with "+
+        "some ingredients and a paper.\n There is a fat elf sleeping(SleepingElf) in the corner");
+        maths = new Room("");
+        tableorder = new Room("");
+        upstairs = new Room("Upstairs Room");
+        minefield =new Room("boom");
+        
+        //add items, characters and exits to rooms
+        
+        //main room
         ArrayList<Item> main_items = new ArrayList<Item>();
         Item bmw = new Item("BMW", "Dikke BMW", 2, 2 );
         Item audi = new Item("Audi", "Dikke Audi", 1, 3000);
         main_items.add(bmw);
         main_items.add(audi);
-        //rooms = new ArrayList<Room>();
-        // create the rooms
-        main = new Room("Main room");
-        puzzle = new Room("in a puzzle room");
-        key = new Room("Find the hidden key");
-        third = new Room("in the campus pub");
-        //fourth = new Room("in a computing lab");
-        //fifth = new Room("in the computing admin office");
-
-        /*rooms.add(main);
-        rooms.add(puzzle);
-        rooms.add(key);
-        rooms.add(third);
-        //rooms.add(fourth);
-        //rooms.add(fifth); */
-
-        // initialise room exits
-        
-        
-        // initialise room exits and characters, items
-        main.setExit("east", puzzle);
-        main.setExit("south", third);
-        // sets characters in rooms
-        Santa = new Character("Santa", "I am santa and you better run");         
-        main.setCharacter(Santa);
         main.setItem(main_items);
+        
+        santa = new Character("Santa", "I am santa and you better run");         
+        main.setCharacter(santa);
+        
+        main.setExit("east", waterpuzzle);
+        main.setExit("south", sleepingelfroom);
+        main.setExit("up", upstairs);
+        
+        //waterpuzzle room
+        ArrayList<Item> water_items = new ArrayList<Item>();
+        Item container = new Item("Container","A container containing water",
+        0,0);
+        water_items.add(container);
+        waterpuzzle.setItem(water_items);
+        
+        waterElf = new Character("Elf","Help me solve this puzzle, please!");
+        waterpuzzle.setCharacter(waterElf);
+        
+        waterpuzzle.setExit("west", main);
+        waterpuzzle.setExit("south", key);
 
-        puzzle.setExit("west", main);
-        puzzle.setExit("south", key);
-
-        key.setExit("south", third);
-        third.setExit("west", main); 
+        //sleepingelf room
+        ArrayList<Item> sleeping_items = new ArrayList<Item>();
+        Item recipe = new Item("Recipe","A recipe for some kind of soup, "+
+        "the title says: How to wake up a sleeping elf",0,0);
+        sleeping_items.add(recipe);
+        sleepingelfroom.setItem(sleeping_items);
+        
+        sleepingElf = new Character("SleepingElf","ZzZ... zZz...");
+        sleepingelfroom.setCharacter(sleepingElf);
+        
+        sleepingelfroom.setExit("north",main);
+        sleepingelfroom.setExit("west",maths);
+        sleepingelfroom.setExit("east",tableorder);
 
         currentRoom = main;
     }
