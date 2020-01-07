@@ -20,4 +20,11 @@ public class Character
         this.text = text;
     }
     
+    public String getCharacterName(){
+        return name;
+    }
+    
+    public String getCharacterText(){
+        return text;
+    }
 }
