@@ -23,7 +23,7 @@ public class Game
     private Room currentRoom;
     private ArrayList rooms;
     private Random random;
-
+    private ArrayList<Room> prevRooms;
     /**
      * Create the game and initialise its internal map.
      */
@@ -31,6 +31,7 @@ public class Game
     {
         createRooms();
         parser = new Parser();
+        prevRooms = new ArrayList();
         //comment om te testen
     }
 
@@ -132,6 +133,10 @@ public class Game
             talkTo(command);
             break;
 
+            case BACK:
+            goBack(command);
+            break;
+
             case QUIT:
             wantToQuit = quit(command);
             break;
@@ -166,6 +171,7 @@ public class Game
             System.out.println("Go where?");
             return;
         }
+        prevRooms.add(currentRoom);
 
         String direction = command.getSecondWord();
 
@@ -179,6 +185,7 @@ public class Game
             currentRoom = nextRoom;
             System.out.println(currentRoom.getLongDescription());
         }
+
     }
 
     private void talkTo(Command command) 
@@ -203,12 +210,25 @@ public class Game
         else{
             System.out.println("This character is not in this room");
         }
-        
-        
+
         // Try to leave current room.
         //Room nextRoom = currentRoom.getExit(direction);
 
     }
+
+    private void goBack(Command command){
+        //goback
+        if ((prevRooms.size() > 0)){
+            currentRoom = prevRooms.get(prevRooms.size() -1);
+            prevRooms.remove(prevRooms.size() -1);
+            System.out.println(currentRoom.getLongDescription());
+        }
+        else{
+            System.out.println("This is where you started, cannot go back" + 
+            " further!");
+        }
+    }
+
     /** 
      * "Quit" was entered. Check the rest of the command to see
      * whether we really quit the game.
