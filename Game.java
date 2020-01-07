@@ -46,6 +46,7 @@ public class Game
         Item bmw = new Item("BMW", "Dikke BMW", 2, 2 );
         Item audi = new Item("Audi", "Dikke Audi", 1, 3000);
         main_items.add(bmw);
+        main_items.add(audi);
         //rooms = new ArrayList<Room>();
         // create the rooms
         main = new Room("Main room");
@@ -164,6 +165,7 @@ public class Game
     {
         for(Item item : currentRoom.getItem()){
         inventory.add(item);
+        System.out.println("You picked up " + item.item_getName());
         }
     }
 

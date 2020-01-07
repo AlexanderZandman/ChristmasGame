@@ -34,6 +34,7 @@ public class Room
     {
         this.description = description;
         npcs = new ArrayList<>();
+        items = new ArrayList<Item>();
         exits = new HashMap<>();
     }
 
