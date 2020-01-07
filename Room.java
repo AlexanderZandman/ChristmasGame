@@ -23,6 +23,7 @@ public class Room
     private Character character;
     private HashMap<String, Room> exits;        // stores exits of this room.
     private ArrayList<Character> npcs;
+    private ArrayList<Item> items;
     /**
      * Create a room described "description". Initially, it has
      * no exits. "description" is something like "a kitchen" or
@@ -33,6 +34,7 @@ public class Room
     {
         this.description = description;
         npcs = new ArrayList<>();
+        items = new ArrayList<Item>();
         exits = new HashMap<>();
     }
 
@@ -55,7 +57,15 @@ public class Room
     public Character getCharacter(){
         return npcs.get(0);
     }
-    
+    public void setItem(ArrayList<Item> roomitems)
+    {
+        for(Item item : roomitems){
+            items.add(item);
+        }
+    }
+    public ArrayList<Item> getItem(){
+       return items;
+    }
     /**
      * @return The short description of the room
      * (the one that was defined in the constructor).

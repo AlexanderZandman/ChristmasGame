@@ -21,4 +21,20 @@ public class Item
         this.itemAmount = itemAmount;
         this.itemWeight = itemWeight;
     }
+    public String item_getName(){
+    String name = itemName;
+    return name;
+    }
+    public String item_getDescription(){
+    String description = itemDescription;
+    return description;
+    }
+    public int item_getAmount(){
+    int amount = itemAmount;
+    return amount;
+    }
+    public int item_getWeight(){
+    int weight = itemWeight;
+    return weight;
+    }
 }

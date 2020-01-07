@@ -24,6 +24,7 @@ public class Game
     private ArrayList rooms;
     private Random random;
     private ArrayList<Room> prevRooms;
+    private ArrayList<Item> inventory = new ArrayList<Item>();
     /**
      * Create the game and initialise its internal map.
      */
@@ -43,6 +44,11 @@ public class Game
 
         Room main, puzzle, key, third, fourth, fifth;
         Character Santa;
+        ArrayList<Item> main_items = new ArrayList<Item>();
+        Item bmw = new Item("BMW", "Dikke BMW", 2, 2 );
+        Item audi = new Item("Audi", "Dikke Audi", 1, 3000);
+        main_items.add(bmw);
+        main_items.add(audi);
         //rooms = new ArrayList<Room>();
         // create the rooms
         main = new Room("Main room");
@@ -60,10 +66,15 @@ public class Game
         //rooms.add(fifth); */
 
         // initialise room exits
+        
+        
+        // initialise room exits and characters, items
         main.setExit("east", puzzle);
         main.setExit("south", third);
+        // sets characters in rooms
         Santa = new Character("Santa", "I am santa and you better run");         
         main.setCharacter(Santa);
+        main.setItem(main_items);
 
         puzzle.setExit("west", main);
         puzzle.setExit("south", key);
@@ -138,10 +149,38 @@ public class Game
             break;
 
             case QUIT:
-            wantToQuit = quit(command);
-            break;
+                wantToQuit = quit(command);
+                break;
+            case INVENTORY:
+                showInventory();
+                break;
+            
+            case PICKUP:
+                pickupItem();
+                break;
+
         }
         return wantToQuit;
+    }
+    public void showInventory()
+    {
+        for(Item item : inventory){
+        String name = item.item_getName();
+        String description = item.item_getDescription();
+        int amount = item.item_getAmount();
+        int weight = item.item_getWeight();
+        System.out.println("Item name: " + name);
+        System.out.println("Description: " + description);
+        System.out.println("Amount " + amount);
+        System.out.println("Weight: " + weight);
+        }
+    }
+    public void pickupItem()
+    {
+        for(Item item : currentRoom.getItem()){
+        inventory.add(item);
+        System.out.println("You picked up " + item.item_getName());
+        }
     }
 
     // implementations of user commands:
