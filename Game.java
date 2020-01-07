@@ -64,10 +64,6 @@ public class Game
         
         //main room
         ArrayList<Item> main_items = new ArrayList<Item>();
-        Item bmw = new Item("BMW", "Dikke BMW", 2, 2 );
-        Item audi = new Item("Audi", "Dikke Audi", 1, 3000);
-        main_items.add(bmw);
-        main_items.add(audi);
         main.setItem(main_items);
         
         santa = new Character("Santa", "I am santa and you better run");         
@@ -212,7 +208,10 @@ public class Game
         System.out.println("You picked up " + item.item_getName());
         }
     }
-
+    public void useItem()
+    {
+        
+    }
     // implementations of user commands:
 
     /**
@@ -283,7 +282,6 @@ public class Game
         else{
             System.out.println("This character is not in this room");
         }
-
         // Try to leave current room.
         //Room nextRoom = currentRoom.getExit(direction);
 
