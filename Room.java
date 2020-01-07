@@ -53,11 +53,13 @@ public class Room
         npcs.add(character);
     }
     
-    public void setItem(Item item)
+    public void setItem(ArrayList<Item> roomitems)
     {
-        items.add(item);
+        for(Item item : roomitems){
+            items.add(item);
+        }
     }
-    public ArrayList getItem(){
+    public ArrayList<Item> getItem(){
        return items;
     }
     /**

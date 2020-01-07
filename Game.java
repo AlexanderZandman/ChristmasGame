@@ -42,7 +42,10 @@ public class Game
         
         Room main, puzzle, key, third, fourth, fifth;
         Character Santa;
-        Item bmw = new Item("BMW", "Dikke BMW", 2, 2 ); 
+        ArrayList<Item> main_items = new ArrayList<Item>();
+        Item bmw = new Item("BMW", "Dikke BMW", 2, 2 );
+        Item audi = new Item("Audi", "Dikke Audi", 1, 3000);
+        main_items.add(bmw);
         //rooms = new ArrayList<Room>();
         // create the rooms
         main = new Room("Main room");
@@ -66,7 +69,7 @@ public class Game
         // sets characters in rooms
         Santa = new Character("Santa", "I am santa and you better run");         
         main.setCharacter(Santa);
-        main.setItem(bmw);
+        main.setItem(main_items);
         puzzle.setExit("west", main);
         puzzle.setExit("south", key);
         
@@ -159,7 +162,9 @@ public class Game
     }
     public void pickupItem()
     {
-        System.out.println(currentRoom.getItem());
+        for(Item item : currentRoom.getItem()){
+        inventory.add(item);
+        }
     }
 
     // implementations of user commands:
