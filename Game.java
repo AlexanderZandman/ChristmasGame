@@ -47,9 +47,11 @@ public class Game
         
         //initialize characters
         Character santa, waterElf, sleepingElf, mathElf;    
+        
         //items
         Item bag_of_presents = new Item("Bag of Presents", "An empty bag that can be filled with presents", 1, 1);
         Item present = new Item("Present", "It is one of the missing presents", 1, 1);
+        
         // create the rooms
         main = new Room("in the main entrance room.\n Santa is crying in the corner");
         waterpuzzle = new Room("in a puzzle room.\n you see a table with "+
@@ -60,7 +62,7 @@ public class Game
         maths = new Room("in math classroom. There is an elf, who is dressed like a teacher, standing behind a desk");
         tableorder = new Room("");
         upstairs = new Room("Upstairs Room");
-        minefield =new Room("in a traproom, proceed carefully as there are mines layed out in this room");
+        minefield = new Room("in a traproom, proceed carefully as there are mines layed out in this room");
         
         //add items, characters and exits to rooms
         
@@ -68,7 +70,7 @@ public class Game
         ArrayList<Item> main_items = new ArrayList<Item>();
         main.setItem(main_items);
         
-        santa = new Character("Santa", "I am santa and you better run", bag_of_presents);         
+        santa = new Character("Santa", "I am santa and you better run, here is a Bag of Presents", bag_of_presents);         
         main.setCharacter(santa);
         
         main.setExit("east", waterpuzzle);
@@ -82,7 +84,7 @@ public class Game
         water_items.add(container);
         waterpuzzle.setItem(water_items);
         
-        waterElf = new Character("Elf","Help me solve this puzzle, please!", present);
+        waterElf = new Character("Elf","Help me solve this puzzle, please!", null);
         waterpuzzle.setCharacter(waterElf);
         
         waterpuzzle.setExit("west", main);
@@ -95,7 +97,7 @@ public class Game
         sleeping_items.add(recipe);
         sleepingelfroom.setItem(sleeping_items);
         
-        sleepingElf = new Character("SleepingElf","ZzZ... zZz...", present);
+        sleepingElf = new Character("SleepingElf","ZzZ... zZz...", null);
         sleepingelfroom.setCharacter(sleepingElf);
         
         sleepingelfroom.setExit("north",main);
@@ -210,9 +212,6 @@ public class Game
         System.out.println("You picked up " + item.item_getName());
         }
     }
-    private void retrieveItem()
-    {
-    }
     private void useItem()
     {
         
@@ -279,6 +278,11 @@ public class Game
         if (npc.equals(npc2.getCharacterName())){
             if (npc2.getCharacterText() != null){
                 System.out.println(npc2.getCharacterText());
+                if(npc2.getCharacterItem() != null){
+                System.out.println("You have received " + npc2.getCharacterItem().item_getName());
+                inventory.add(npc2.getCharacterItem());
+            }
+                
             }
             else{
                 System.out.println("This person cannot talk");
