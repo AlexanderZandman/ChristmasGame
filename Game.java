@@ -47,7 +47,9 @@ public class Game
         
         //initialize characters
         Character santa, waterElf, sleepingElf, mathElf;    
-        
+        //items
+        Item bag_of_presents = new Item("Bag of Presents", "An empty bag that can be filled with presents", 1, 1);
+        Item present = new Item("Present", "It is one of the missing presents", 1, 1);
         // create the rooms
         main = new Room("in the main entrance room.\n Santa is crying in the corner");
         waterpuzzle = new Room("in a puzzle room.\n you see a table with "+
@@ -66,7 +68,7 @@ public class Game
         ArrayList<Item> main_items = new ArrayList<Item>();
         main.setItem(main_items);
         
-        santa = new Character("Santa", "I am santa and you better run");         
+        santa = new Character("Santa", "I am santa and you better run", bag_of_presents);         
         main.setCharacter(santa);
         
         main.setExit("east", waterpuzzle);
@@ -80,7 +82,7 @@ public class Game
         water_items.add(container);
         waterpuzzle.setItem(water_items);
         
-        waterElf = new Character("Elf","Help me solve this puzzle, please!");
+        waterElf = new Character("Elf","Help me solve this puzzle, please!", present);
         waterpuzzle.setCharacter(waterElf);
         
         waterpuzzle.setExit("west", main);
@@ -93,7 +95,7 @@ public class Game
         sleeping_items.add(recipe);
         sleepingelfroom.setItem(sleeping_items);
         
-        sleepingElf = new Character("SleepingElf","ZzZ... zZz...");
+        sleepingElf = new Character("SleepingElf","ZzZ... zZz...", present);
         sleepingelfroom.setCharacter(sleepingElf);
         
         sleepingelfroom.setExit("north",main);
@@ -184,7 +186,7 @@ public class Game
         }
         return wantToQuit;
     }
-    public void showInventory()
+    private void showInventory()
     {
         if(inventory.size() < 1){
         System.out.println("Your inventory is empty");
@@ -201,14 +203,17 @@ public class Game
         }
     }
     }
-    public void pickupItem()
+    private void pickupItem()
     {
         for(Item item : currentRoom.getItem()){
         inventory.add(item);
         System.out.println("You picked up " + item.item_getName());
         }
     }
-    public void useItem()
+    private void retrieveItem()
+    {
+    }
+    private void useItem()
     {
         
     }

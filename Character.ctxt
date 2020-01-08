@@ -1,11 +1,13 @@
 #BlueJ class context
 comment0.target=Character
 comment0.text=\r\n\ Write\ a\ description\ of\ class\ Characters\ here.\r\n\r\n\ @author\ (your\ name)\r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
-comment1.params=name\ text
-comment1.target=Character(java.lang.String,\ java.lang.String)
+comment1.params=name\ text\ item
+comment1.target=Character(java.lang.String,\ java.lang.String,\ Item)
 comment1.text=\r\n\ Constructor\ for\ objects\ of\ class\ Characters\r\n
 comment2.params=
 comment2.target=java.lang.String\ getCharacterName()
 comment3.params=
 comment3.target=java.lang.String\ getCharacterText()
-numComments=4
+comment4.params=
+comment4.target=Item\ getCharacterItem()
+numComments=5
