@@ -11,6 +11,8 @@ public class Character
     private String text;
     private Room location;
     private Item item;
+    private String question;
+    private Integer answer;
     /**
      * Constructor for objects of class Characters
      */
@@ -19,6 +21,7 @@ public class Character
         this.name = name;
         this.text = text;
         this.item = item;
+        String question = null;
     }
     
     public String getCharacterName(){
@@ -31,5 +34,28 @@ public class Character
     
     public Item getCharacterItem(){
         return item;
+    }
+    
+    public void setCharacterQuestion(String question,Integer answer){
+        this.question = question;
+        this.answer = answer;
+    }
+    
+    public String getCharacterQuestion(){
+        if (question != null){
+            return question;
+            }
+        else{
+            return null;
+        }
+    }
+    
+    public Integer getCharacterAnswer(){
+        if (answer != null){
+            return answer;
+            }
+        else{
+            return null;
+        }
     }
 }

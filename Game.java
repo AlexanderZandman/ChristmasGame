@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.Random;
+import java.util.Scanner;
 /**
  *  This class is the main class of the "World of Zuul" application. 
  *  "World of Zuul" is a very simple, text based adventure game.  Users 
@@ -84,6 +85,7 @@ public class Game
         waterpuzzleroom.setItem(water_items);
         
         waterElf = new Character("Elf","Help me solve this puzzle, please!", null);
+        waterElf.setCharacterQuestion("What is your favourite number?" , 69);
         waterpuzzleroom.setCharacter(waterElf);
         
         waterpuzzleroom.setExit("west", mainroom);
@@ -290,9 +292,32 @@ public class Game
         else{
             System.out.println("This character is not in this room");
         }
-        // Try to leave current room.
-        //Room nextRoom = currentRoom.getExit(direction);
+        
+        if (npc2.getCharacterQuestion() != null){
+            askForAnswer(npc2.getCharacterQuestion(),npc2.getCharacterAnswer());
+        }
 
+    }
+    
+    private void askForAnswer(String question,Integer answer){
+        Scanner input = new Scanner(System.in);
+        System.out.print(question + "\nYour answer: ");
+    	if (input.hasNextInt()){ 
+    	    
+    	    int number = input.nextInt();
+    	    System.out.println("You entered " + number);
+    	    if (number == answer){
+    	        System.out.println("That's the correct answer");
+    	    }
+    	    else{
+    	        System.out.println("No, that is incorrect");
+    	    }
+        }
+        else{
+            System.out.println("Your answer must be a number." +
+            "\nTalk to me once more, to try again");
+        }
+    //}
     }
 
     private void goBack(Command command){
