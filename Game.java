@@ -42,8 +42,7 @@ public class Game
     private void createRooms()
     {
         //initialize rooms
-        Room main, waterpuzzle, key, sleepingelfroom, maths, tableorder,
-        upstairs, minefield;
+      
         
         //initialize characters
         Character santa, waterElf, sleepingElf, mathElf;    
@@ -53,63 +52,63 @@ public class Game
         Item present = new Item("Present", "It is one of the missing presents", 1, 1);
         
         // create the rooms
-        main = new Room("in the main entrance room.\n Santa is crying in the corner");
-        waterpuzzle = new Room("in a puzzle room.\n you see a table with "+
+        Room mainroom = new Room("in the main entrance room.\n Santa is crying in the corner");
+        Room waterpuzzleroom = new Room("in a puzzle room.\n you see a table with "+
         "containers and a sink.\n An Elf is standing in front of you");
-        key = new Room("Find the hidden key");
-        sleepingelfroom = new Room("in a dark room.\n You see a table with "+
+        Room keyroom = new Room("Find the hidden key");
+        Room sleeping_elf_room = new Room("in a dark room.\n You see a table with "+
         "some ingredients and a paper.\n There is a fat elf sleeping(SleepingElf) in the corner");
-        maths = new Room("in math classroom. There is an elf, who is dressed like a teacher, standing behind a desk");
-        tableorder = new Room("");
-        upstairs = new Room("Upstairs Room");
-        minefield = new Room("in a traproom, proceed carefully as there are mines layed out in this room");
+        Room mathroom = new Room("in math classroom. There is an elf, who is dressed like a teacher, standing behind a desk");
+        Room table_order_room = new Room("");
+        Room upstairsroom = new Room("Upstairs Room");
+        Room minefieldroom = new Room("in a traproom, proceed carefully as there are mines layed out in this room");
         
         //add items, characters and exits to rooms
         
         //main room
         ArrayList<Item> main_items = new ArrayList<Item>();
-        main.setItem(main_items);
+        mainroom.setItem(main_items);
         
         santa = new Character("Santa", "I am santa and you better run, here is a Bag of Presents", bag_of_presents);         
-        main.setCharacter(santa);
+        mainroom.setCharacter(santa);
         
-        main.setExit("east", waterpuzzle);
-        main.setExit("south", sleepingelfroom);
-        main.setExit("up", upstairs);
+        mainroom.setExit("east", waterpuzzleroom);
+        mainroom.setExit("south", sleeping_elf_room);
+        mainroom.setExit("up", upstairsroom);
         
         //waterpuzzle room
         ArrayList<Item> water_items = new ArrayList<Item>();
         Item container = new Item("Container","A container containing water",
         0,0);
         water_items.add(container);
-        waterpuzzle.setItem(water_items);
+        waterpuzzleroom.setItem(water_items);
         
         waterElf = new Character("Elf","Help me solve this puzzle, please!", null);
-        waterpuzzle.setCharacter(waterElf);
+        waterpuzzleroom.setCharacter(waterElf);
         
-        waterpuzzle.setExit("west", main);
-        waterpuzzle.setExit("south", key);
+        waterpuzzleroom.setExit("west", mainroom);
+        waterpuzzleroom.setExit("south", keyroom);
 
         //sleepingelf room
         ArrayList<Item> sleeping_items = new ArrayList<Item>();
         Item recipe = new Item("Recipe","A recipe for some kind of soup, "+
         "the title says: How to wake up a sleeping elf",0,0);
         sleeping_items.add(recipe);
-        sleepingelfroom.setItem(sleeping_items);
+        sleeping_elf_room.setItem(sleeping_items);
         
         sleepingElf = new Character("SleepingElf","ZzZ... zZz...", null);
-        sleepingelfroom.setCharacter(sleepingElf);
+        sleeping_elf_room.setCharacter(sleepingElf);
         
-        sleepingelfroom.setExit("north",main);
-        sleepingelfroom.setExit("west",maths);
-        sleepingelfroom.setExit("east",tableorder);
+        sleeping_elf_room.setExit("north",mainroom);
+        sleeping_elf_room.setExit("west",mathroom);
+        sleeping_elf_room.setExit("east",table_order_room);
         
         //minefield room
         Random r = new Random();
         ArrayList<Integer> savetiles = new ArrayList<Integer>();
         
 
-        currentRoom = main;
+        currentRoom = mainroom;
     }
 
     /**
