@@ -22,19 +22,22 @@ public class Item
         this.itemWeight = itemWeight;
     }
     public String item_getName(){
-    String name = itemName;
-    return name;
+        String name = itemName;
+        return name;
     }
     public String item_getDescription(){
-    String description = itemDescription;
-    return description;
+        String description = itemDescription;
+        return description;
     }
     public int item_getAmount(){
-    int amount = itemAmount;
-    return amount;
+        int amount = itemAmount;
+        return amount;
     }
     public int item_getWeight(){
-    int weight = itemWeight;
-    return weight;
+        int weight = itemWeight;
+        return weight;
+    }
+    public void item_inreaseAmount(){
+        itemAmount = itemAmount + 1;
     }
 }
