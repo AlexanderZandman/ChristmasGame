@@ -53,6 +53,7 @@ dependency8.type=UsesDependency
 dependency9.from=Character
 dependency9.to=Item
 dependency9.type=UsesDependency
+<<<<<<< HEAD
 editor.fx.0.height=737
 editor.fx.0.width=814
 editor.fx.0.x=294
@@ -69,6 +70,24 @@ package.frame.height=602
 package.frame.width=1048
 package.numDependencies=18
 package.numTargets=11
+=======
+editor.fx.0.height=838
+editor.fx.0.width=1550
+editor.fx.0.x=-7
+editor.fx.0.y=-7
+objectbench.height=88
+objectbench.width=901
+package.divider.horizontal=0.599894291754757
+package.divider.vertical=0.8703904555314533
+package.editor.height=636
+package.editor.width=1421
+package.editor.x=0
+package.editor.y=104
+package.frame.height=836
+package.frame.width=1548
+package.numDependencies=15
+package.numTargets=9
+>>>>>>> caa43c31ca7d4cdae3a02608229dbb747d208f97
 package.showExtends=true
 package.showUses=true
 project.charset=UTF-8
