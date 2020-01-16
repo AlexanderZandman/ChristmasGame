@@ -12,6 +12,7 @@ public enum CommandWord
     
     GO("go"), QUIT("quit"), HELP("help"), UNKNOWN("?"), TALK("talk_to"),
     BACK("back"), INVENTORY("inventory"), PICKUP("pickup");
+     
 
     
     // The command string.
