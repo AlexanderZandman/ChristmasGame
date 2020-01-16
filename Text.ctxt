@@ -1,0 +1,12 @@
+#BlueJ class context
+comment0.target=Text
+comment0.text=\r\n\ Enumeration\ class\ text\ -\ Class\ to\ write\ text\ in\ both\ english\ and\ dutch.\r\n\r\n\ @author\ (your\ name\ here)\r\n\ @version\ (version\ number\ or\ date\ here)\r\n
+comment1.params=EnglishText\ NederlandsText
+comment1.target=Text(java.lang.String,\ java.lang.String)
+comment2.params=
+comment2.target=java.lang.String\ getNederlandsText()
+comment3.params=
+comment3.target=java.lang.String\ getEnglishText()
+comment4.params=
+comment4.target=java.lang.String\ checkLanguage()
+numComments=5
