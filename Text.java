@@ -29,12 +29,15 @@ public enum Text{
         return EnglishText;
     }
     
-    public String checkLanguage(){
-        if (settings.getLanguage() == 0){
+    public String checkLanguage(int language){
+        if (language == 0){
             return EnglishText;
         }
+        if (language == 1){
+            return NederlandsText;
+        }
         else{
-            return "niet 0";
+            return null;
         }
         
     }

@@ -10,7 +10,7 @@ public class Settings
     int languagePref;
     
     public void setLanguage(int language){
-        languagePref = language;
+        this.languagePref = language;
     }
     
     public int getLanguage(){
