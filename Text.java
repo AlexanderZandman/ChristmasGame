@@ -30,7 +30,14 @@ public enum Text{
     MINEFIELDROOM("in a traproom, proceed carefully as there are mines layed out in this room",
     "in een valkamer, let op je elke stap! Er zijn overal mijnen in deze kamer"),
     ROOMDESCRIPTION("You are ",
-    "Je bent ");
+    "Je bent "),
+    COMMANDGO("go", "ga"),
+    COMMANDQUIT("quit", "stop"),
+    COMMANDHELP("help", "hulp"),
+    COMMANDTALK("talk_to", "praat_met"),
+    COMMANDBACK("back", "terug"),
+    COMMANDINVENTORY("inventory", "inventaris"),
+    COMMANDPICKUP("pickup", "pakop");
     
     
     
