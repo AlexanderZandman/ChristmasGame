@@ -11,8 +11,9 @@ public enum Text{
         "Type '" + CommandWord.HELP + "' if you need help.",
         "Welkom bij 'The Saving of Christmas'\n" +
         "In dit spel, moet je de kerstman helpen om puzzels op te lossen!\n" +
-        "Typ '" + CommandWord.HELP + "' als je hulp nodig hebt");
-    
+        "Typ '" + CommandWord.HELP + "' als je hulp nodig hebt"),
+    MAIN("In the main entrance room.\n Santa is crying in the corner",
+    "In de algemene kamer, de kerstman zit in de hoek te huilen");
     
     private String NederlandsText, EnglishText;
     
