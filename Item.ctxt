@@ -13,5 +13,5 @@ comment4.target=int\ item_getAmount()
 comment5.params=
 comment5.target=int\ item_getWeight()
 comment6.params=
-comment6.target=void\ item_inreaseAmount()
+comment6.target=void\ item_increaseAmount()
 numComments=7

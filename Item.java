@@ -37,7 +37,7 @@ public class Item
         int weight = itemWeight;
         return weight;
     }
-    public void item_inreaseAmount(){
+    public void item_increaseAmount(){
         itemAmount = itemAmount + 1;
     }
 }

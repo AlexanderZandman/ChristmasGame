@@ -37,8 +37,8 @@ public enum Text{
     COMMANDTALK("talk_to", "praat_met"),
     COMMANDBACK("back", "terug"),
     COMMANDINVENTORY("inventory", "inventaris"),
-    COMMANDPICKUP("pickup", "pakop");
-    
+    COMMANDPICKUP("pickup", "pakop"),
+    COMMANDSHOW("show", "bekijk");
     
     
     private String NederlandsText, EnglishText;
