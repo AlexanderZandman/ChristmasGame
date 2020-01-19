@@ -65,7 +65,7 @@ public enum Text{
             return NederlandsText;
         }
         else{
-            return null;
+            return EnglishText;
         }
         
     }
