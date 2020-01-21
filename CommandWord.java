@@ -18,7 +18,8 @@ public enum CommandWord
     BACK("back"), 
     INVENTORY("inventory"), 
     PICKUP("pickup"), 
-    SHOW("show");
+    SHOW("show"),
+    LIVES("lives");
      
 
     
