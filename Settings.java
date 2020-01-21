@@ -8,12 +8,11 @@
 public class Settings
 {
     int languagePref;
-    
     public void setLanguage(int language){
         this.languagePref = language;
     }
     
     public int getLanguage(){
-        return languagePref;
+        return /*this.*/languagePref;
     }
 }

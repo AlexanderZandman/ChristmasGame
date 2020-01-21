@@ -63,6 +63,9 @@ public class Room
             items.add(item);
         }
     }
+    public void unsetItem(Item item){
+        items.remove(item);
+    }
     public ArrayList<Item> getItem(){
        return items;
     }
