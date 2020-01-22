@@ -19,7 +19,9 @@ public enum CommandWord
     INVENTORY("inventory","inventaris"), 
     PICKUP("pickup","pakop"), 
     SHOW("show","bekijk"),
-    LIVES("lives","levens");
+    LIVES("lives","levens"),
+    ATTACK("val_aan", "attack");
+    
      
 
     

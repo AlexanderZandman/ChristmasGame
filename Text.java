@@ -48,6 +48,7 @@ public enum Text{
     DOWN("down","omlaag");
     
     
+    
     private String NederlandsText, EnglishText;
     
 

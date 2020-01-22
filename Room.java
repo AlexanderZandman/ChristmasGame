@@ -53,6 +53,10 @@ public class Room
     {
         npcs.add(character);
     }
+    public void rmCharacter(Character character)
+    {
+        npcs.remove(character);
+    }
     
     public Character getCharacter(){
         return npcs.get(0);
