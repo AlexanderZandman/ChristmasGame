@@ -10,30 +10,30 @@ public enum CommandWord
     // A value for each command word along with its
     // corresponding user interface string.
     
-    GO("go"), 
-    QUIT("quit"), 
-    HELP("help"), 
-    UNKNOWN("?"), 
-    TALK("talk_to"),
-    BACK("back"), 
-    INVENTORY("inventory"), 
-    PICKUP("pickup"), 
-    SHOW("show"),
-    LIVES("lives");
+    GO("go","ga"), 
+    QUIT("quit","stop"), 
+    HELP("help","hulp"), 
+    UNKNOWN("?","?"), 
+    TALK("talk_to","praat_met"),
+    BACK("back","terug"), 
+    INVENTORY("inventory","inventaris"), 
+    PICKUP("pickup","pakop"), 
+    SHOW("show","bekijk"),
+    LIVES("lives","levens");
      
 
     
     // The command string.
-    private String commandString;
-    private Settings settings = new Settings();
-    private int language = settings.getLanguage();
+    private String commandStringEN;
+    private String commandStringNL;
     /**
      * Initialise with the corresponding command string.
      * @param commandString The command string.
      */
-    CommandWord(String commandString)
+    CommandWord(String commandStringEN, String commandStringNL)
     {
-        this.commandString = commandString;
+        this.commandStringEN = commandStringEN;
+        this.commandStringNL = commandStringNL;
     }
     
     /**
@@ -41,6 +41,11 @@ public enum CommandWord
      */
     public String toString()
     {
-        return commandString;
+        if (Game.userinput == 1){
+            return commandStringNL;
+        }
+        else{
+            return commandStringEN;
+        }
     }
 }
