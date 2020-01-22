@@ -39,7 +39,13 @@ public enum Text{
     COMMANDBACK("back", "terug"),
     COMMANDINVENTORY("inventory", "inventaris"),
     COMMANDPICKUP("pickup", "pakop"),
-    COMMANDSHOW("show", "bekijk");
+    COMMANDSHOW("show", "bekijk"),
+    NORTH("north","noord"),
+    WEST("west","west"),
+    SOUTH("south","zuid"),
+    EAST("east","oost"),
+    UP("up","omhoog"),
+    DOWN("down","omlaag");
     
     
     private String NederlandsText, EnglishText;
