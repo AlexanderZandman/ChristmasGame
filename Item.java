@@ -40,4 +40,10 @@ public class Item
     public void item_increaseAmount(){
         itemAmount = itemAmount + 1;
     }
+    public void item_changeName(String newname){
+        itemName = newname;
+    }
+    public void item_changeDescription(String newdescription){
+        itemDescription = newdescription;
+    }
 }
