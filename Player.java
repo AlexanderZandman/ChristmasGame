@@ -1,6 +1,9 @@
 import java.util.ArrayList;
 /**
- * Write a description of class Player here.
+ * This is the class where the player is defined.
+ * @param inventory - here the player his inventory is initiated
+ * @param lives - the amount of lives the player has
+ * @param strength - the strength variable, this is used to move the boulder for the Grinch fight
  *
  * @author (your name)
  * @version (a version number or a date)
@@ -10,6 +13,11 @@ public class Player
     private ArrayList<Item> inventory;
     private int lives;
     private int strength;
+    
+    /**
+     * Constructor for class player
+     * 
+     */
     public Player(ArrayList<Item> inventory, int lives, int strength){
         this.inventory = inventory;
         this.lives = lives;

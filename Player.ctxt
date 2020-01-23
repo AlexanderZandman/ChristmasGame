@@ -1,8 +1,9 @@
 #BlueJ class context
 comment0.target=Player
-comment0.text=\r\n\ Write\ a\ description\ of\ class\ Player\ here.\r\n\r\n\ @author\ (your\ name)\r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment0.text=\r\n\ This\ is\ the\ class\ where\ the\ player\ is\ defined.\r\n\ @param\ inventory\ -\ here\ the\ player\ his\ inventory\ is\ initiated\r\n\ @param\ lives\ -\ the\ amount\ of\ lives\ the\ player\ has\r\n\ @param\ strength\ -\ the\ strength\ variable,\ this\ is\ used\ to\ move\ the\ boulder\ for\ the\ Grinch\ fight\r\n\r\n\ @author\ (your\ name)\r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
 comment1.params=inventory\ lives\ strength
 comment1.target=Player(java.util.ArrayList,\ int,\ int)
+comment1.text=\r\n\ Constructor\ for\ class\ player\r\n\ \r\n
 comment2.params=
 comment2.target=int\ getLives()
 comment3.params=i
