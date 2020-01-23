@@ -9,7 +9,7 @@ public enum CommandWord
 {
     // A value for each command word along with its
     // corresponding user interface string.
-    
+
     GO("go","ga"), 
     QUIT("quit","afsluiten"), 
     HELP("help","hulp"), 
@@ -21,10 +21,8 @@ public enum CommandWord
     SHOW("show","bekijk"),
     LIVES("lives","levens"),
     ATTACK("attack", "val_aan");
-    
-     
 
-    
+
     // The command string.
     private String commandStringEN;
     private String commandStringNL;
@@ -37,7 +35,7 @@ public enum CommandWord
         this.commandStringEN = commandStringEN;
         this.commandStringNL = commandStringNL;
     }
-    
+
     /**
      * @return The command word as a string.
      */

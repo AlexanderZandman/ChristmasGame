@@ -112,10 +112,15 @@ public enum Text{
 
     WATERMELON("Watermelon","Watermeloen"),
 
-    BEANS("Beans","Bonen");
+    BEANS("Beans","Bonen"),
 
-    
-    
+    SWORDROOM("You walk inside of a mysterious room. In front of you is a sleigh with a sword pierced through it." +
+    "\nThe sword appears to be made out of Candy Canes?\n" +
+    "Use the pickup CandyCaneSword command to retreive the sword",
+    "Je loopt in een geheimzinnige kamer. Voor je is een slee met een zwaard erdoorheen gestoken.\n" +
+    "Het zwaard lijkt van zuurstokken gemaakt te zijn?\n" +
+    "Gebruik het pak_op CandyCaneSword commando om het zwaard op te pakken");
+
     private String NederlandsText, EnglishText;
 
     private Text(String EnglishText, String NederlandsText) {
