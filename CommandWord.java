@@ -21,8 +21,8 @@ public enum CommandWord
     SHOW("show","bekijk"),
     LIVES("lives","levens"),
     ATTACK("attack", "val_aan"),
-    USE("use", "gebruik");
-
+    USE("use", "gebruik"),
+    STRENGTH("strength", "kracht");
 
 
     // The command string.

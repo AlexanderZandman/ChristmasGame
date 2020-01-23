@@ -24,18 +24,20 @@ public class Room
     private HashMap<String, Room> exits;        // stores exits of this room.
     private ArrayList<Character> npcs;
     private ArrayList<Item> items;
+    private int locked;
     /**
      * Create a room described "description". Initially, it has
      * no exits. "description" is something like "a kitchen" or
      * "an open court yard".
      * @param description The room's description.
      */
-    public Room(String description) 
+    public Room(String description, int locked) 
     {
         this.description = description;
         npcs = new ArrayList<>();
         items = new ArrayList<Item>();
         exits = new HashMap<>();
+        this.locked = locked;
     }
 
     /**
@@ -47,8 +49,10 @@ public class Room
     {
         exits.put(direction, neighbor);
     }
-
-    
+    public int isLocked()
+    {
+        return locked;
+    }
     public void setCharacter(Character character) 
     {
         npcs.add(character);
