@@ -36,6 +36,9 @@ public class Character
     public String getCharacterText(){
         return text;
     }
+    public void changeCharacterText(String newtext){
+        this.text = newtext;
+    }
     
     public Item getCharacterItem(){
         return item;
