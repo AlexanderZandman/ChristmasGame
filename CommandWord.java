@@ -11,7 +11,7 @@ public enum CommandWord
     // corresponding user interface string.
     
     GO("go","ga"), 
-    QUIT("quit","stop"), 
+    QUIT("quit","afsluiten"), 
     HELP("help","hulp"), 
     UNKNOWN("?","?"), 
     TALK("talk_to","praat_met"),
@@ -20,7 +20,7 @@ public enum CommandWord
     PICKUP("pickup","pakop"), 
     SHOW("show","bekijk"),
     LIVES("lives","levens"),
-    ATTACK("val_aan", "attack");
+    ATTACK("attack", "val_aan");
     
      
 

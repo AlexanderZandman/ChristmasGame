@@ -45,7 +45,35 @@ public enum Text{
     SOUTH("south","zuid"),
     EAST("east","oost"),
     UP("up","omhoog"),
-    DOWN("down","omlaag");
+    DOWN("down","omlaag"),
+    THANKS("Thank you for playing.  Good bye.",
+    "Bedankt voor het spelen. Tot ziens." ),
+    UNKNOWN("I don't know what you mean...","Ik begrijp je niet..."),
+    LIVES1("You have ","Je hebt "),
+    LIVES2("Lives left ","Levens over "),
+    INVENTORYEMPTY("Your inventory is empty","Je inventaris is leeg"),
+    ITEMNAME("Item Name: ","Naam voorwerp: "),
+    ITEMDESC("Description: ", "Omschrijving: "),
+    ITEMAMOUNT("Amount: ", "Aantal"),
+    SHOWROOMITEM("These items are in this room: ",
+    "Deze voorwerpen bevinden zich in deze kamer"),
+    SHOWROOMCHAR("This character is in this room: ",
+    "Dit character is in deze kamer: "),
+    PICKUPERROR("What item do you want to pickup?"
+    ,"Welk voorwerp wil je oppakken?"),
+    TRAP("Oh no it's a trap","Oh nee, dat was een val"),
+    FELLINTRAP("Oh no, you fell into a trap.\n You have lost one life",
+    "Oh nee, je bent in een val getrapt.\n Je bent één leven verloren"), 
+    KEY("Key", "Sleutel"),
+    KEYDESCR("This key might be able to open a door...",
+    "Misschien kan deze sleuten een deur openen..."),
+    HELP("You are in Santa's Christmas Cave. Santa needs your help " + 
+    " to find all the presents that the Grinch has stolen.\n\nYour command words are:",
+    "Je bent in de Kerstman's Kerst Grot. De Kerstman heeft je hulp nodig!" +
+    "Je moet alle cadeautjes terug vinden die de Grinch heeft gestolen!\n\nDe Command woorden zijn:");
+    
+    
+    
     
     
     
