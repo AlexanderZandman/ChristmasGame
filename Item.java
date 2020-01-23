@@ -1,6 +1,10 @@
 
 /**
- * Write a description of class Items here.
+ * The class Item, contains all the information which is needed to create an Item in our game.
+ * @param itemName - the name of the item
+ * @param itemDescription - the description of the item
+ * @param itemAmount - the amount of the item that the player has
+ * @param itemUse - the use the item has, defined in integers
  *
  * @author (your name)
  * @version (a version number or a date)

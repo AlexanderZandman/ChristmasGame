@@ -1,7 +1,12 @@
 
 /**
- * Write a description of class Characters here.
- *
+ * This class contains all the information for creating a character in this game
+ * @param name - the character name
+ * @param text - the text the character can output
+ * @param location - where the character resides
+ * @param item - what item the character holds
+ * @param question - the question that the character can ask
+ * @param answer - the answer to the question
  * @author (your name)
  * @version (a version number or a date)
  */

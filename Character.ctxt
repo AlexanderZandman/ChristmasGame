@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=Character
-comment0.text=\r\n\ Write\ a\ description\ of\ class\ Characters\ here.\r\n\r\n\ @author\ (your\ name)\r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment0.text=\r\n\ This\ class\ contains\ all\ the\ information\ for\ creating\ a\ character\ in\ this\ game\r\n\ @param\ name\ -\ the\ character\ name\r\n\ @param\ text\ -\ the\ text\ the\ character\ can\ output\r\n\ @param\ location\ -\ where\ the\ character\ resides\r\n\ @param\ item\ -\ what\ item\ the\ character\ holds\r\n\ @param\ question\ -\ the\ question\ that\ the\ character\ can\ ask\r\n\ @param\ answer\ -\ the\ answer\ to\ the\ question\r\n\ @author\ (your\ name)\r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
 comment1.params=name\ text\ item
 comment1.target=Character(java.lang.String,\ java.lang.String,\ Item)
 comment1.text=\r\n\ Constructor\ for\ objects\ of\ class\ Characters\r\n
