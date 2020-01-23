@@ -145,6 +145,8 @@ public enum Text{
     ADDPRESENT("You have received a Present!",
     "Je hebt een cadeautje ontvangen!");
     
+    
+    
 
     private String NederlandsText, EnglishText;
 
