@@ -10,16 +10,16 @@ public class Item
     private String itemName;
     private String itemDescription;
     private int itemAmount;
-    private int itemWeight;
+    private int itemUse;
     /**
      * Constructor for objects of class Items
      */
-    public Item(String itemName, String itemDescription, int itemAmount, int itemWeight)
+    public Item(String itemName, String itemDescription, int itemAmount, int itemUse)
     {
         this.itemName = itemName;
         this.itemDescription = itemDescription;
         this.itemAmount = itemAmount;
-        this.itemWeight = itemWeight;
+        this.itemUse = itemUse;
     }
     public String item_getName(){
         String name = itemName;
@@ -33,9 +33,9 @@ public class Item
         int amount = itemAmount;
         return amount;
     }
-    public int item_getWeight(){
-        int weight = itemWeight;
-        return weight;
+    public int item_getUse(){
+        int use = itemUse;
+        return use;
     }
     public void item_increaseAmount(){
         itemAmount = itemAmount + 1;
