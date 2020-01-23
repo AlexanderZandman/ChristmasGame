@@ -38,8 +38,6 @@ public enum Text{
     "in een kamer, voor je staat een tafel.\n Op de tafel liggen er wat spullen, er staat een elf voor de tafel.\n Gebruik het praat_met Elf commando voor meer informatie"),
     UPSTAIRSROOM("Upstairs Room",
     "Boven kamer"),
-    MINEFIELDROOM("in a traproom, proceed carefully as there are mines layed out in this room",
-    "in een valkamer, let op je elke stap! Er zijn overal mijnen in deze kamer"),
     ROOMDESCRIPTION("You are ",
     "Je bent "),
     COMMANDGO("go", "ga"),

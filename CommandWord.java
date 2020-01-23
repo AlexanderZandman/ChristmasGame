@@ -20,7 +20,9 @@ public enum CommandWord
     PICKUP("pickup","pakop"), 
     SHOW("show","bekijk"),
     LIVES("lives","levens"),
-    ATTACK("attack", "val_aan");
+    ATTACK("attack", "val_aan"),
+    USE("use", "gebruik");
+
 
 
     // The command string.
