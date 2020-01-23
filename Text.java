@@ -12,30 +12,30 @@ public enum Text{
     "Welkom bij 'The Saving of Christmas'\n" +
     "In dit spel, moet je de kerstman helpen om puzzels op te lossen!\n" +
     "Typ '" + CommandWord.HELP + "' als je hulp nodig hebt"),
-    MAINROOM("in the main entrance room.\n Santa is crying in the corner",
+    MAINROOM("in the main entrance room.\nSanta is crying in the corner",
     "in de algemene kamer, de kerstman zit in de hoek te huilen"),
     WATERPUZZLEROOM("in a puzzle room.\n you see a table with " +
     "containers and a sink.\n An Elf is standing in front of you",
     "in een puzzel room. \n je ziet een tafel met bakjes en een kraan. \n een Elf staat voor je"),
     KEYROOM("You enter a dark room, in front of you are a few boxes illuminated by a small fire.\n What could these boxes contain?\n An Elf stands by the boxes, try talking to him (talk_to Elf) for more information",
     "Je stapt een donkere kamer binnen, voor je staan een paar dozen verlicht door een klein vuur.\n Wat zou er in deze dozen zitten?\n Een Elf staat bij de dozen, probeer met hem te praten (praat_met Elf) voor meer informatie"),
-    SLEEPING_ELF_ROOM("You are in a dimm room.\nYou see a table with " + 
-    "some ingredients and a paper.\nThere is a fat elf sleeping in the corner, maybe you should wake him up?\n" +
+    SLEEPING_ELF_ROOM("You are in a dim room.\nYou see a table with " + 
+    "some ingredients and a paper.\nThere is a fat elf sleeping in the corner, maybe you should wake him up?\n\n" +
     "The paper on the table says:\nTo wake up a sleeping Elf, pick his favourite food, and make him smell it himself\n" + 
-    "The elf's favourite is green, but what you eat is red, and what you spit out is black.\n" +
+    "The elf's favourite is green, but what you eat is red, and what you spit out is black.\n\n" +
     "On the table the are: Peas, Kiwi, Chili, Watermelon, Beans. \n" +
     "Pickup one of the items (use command pickup) to give it to make the elf smell it",
     "Je bent in een donkere kamer.\nVoor je staat een tafel met eten en een papiertje.\n" +
-    "Er ligt een dikke Elf te slapen, misschien moet je hem wakker maken\n" +
+    "Er ligt een dikke Elf te slapen, misschien moet je hem wakker maken.\n\n" +
     "Op het papiertje staat:\n"  +
     "Om een elf wakker te maken, moet je hem verblijden met zijn favouriete geuren en smaken\n" +
-    "De lieveling van de Elf is groen, maar als je het eet is het rood, en wat je uitspuugt is zwart\n"+
+    "De lieveling van de Elf is groen, maar als je het eet is het rood, en wat je uitspuugt is zwart.\n\n"+
     "Op tafel liggen: Erwten, Kiwi, Chili, Watermeloen, Bonen\n"+
     "Pak iets van tafel (met command pakop) om het aan de elf te geven"),
-    MATHROOM("in math classroom. There is an elf, who is dressed like a teacher, standing behind a desk.\n You can try talking to the elf with the command talk_to Elf",
-    "in een wiskunde klaslokaal. Er staat een elf, die verkleed is als een leraar, bij een bureau.\n Je kunt proberen te praten met de elf doormiddel van het commando praat_met Elf"),
-    TABLE_ORDER_ROOM("in a room, a table stand infront of you.\n The table contains some supplies, and an elf is standing infront of them.\n Use the talk_to Elf command for more information.", 
-    "in een kamer, voor je staat een tafel.\n Op de tafel liggen er wat spullen, er staat een elf voor de tafel.\n Gebruik het praat_met Elf commando voor meer informatie"),
+    MATHROOM("You are in math classroom. There is an elf, who is dressed like a teacher, standing behind a desk.\nYou can try talking to the elf with the command talk_to Elf",
+    "Je bent in een wiskunde klaslokaal. Er staat een elf, die verkleed is als een leraar, bij een bureau.\n Je kunt proberen te praten met de elf doormiddel van het commando praat_met Elf"),
+    TABLE_ORDER_ROOM("You are in a room, a table stand infront of you.\nThe table contains some supplies, and an elf is standing infront of them.\nUse the talk_to Elf command for more information.", 
+    "Je bent in een kamer, voor je staat een tafel.\nOp de tafel liggen er wat spullen, er staat een elf voor de tafel.\nGebruik het praat_met Elf commando voor meer informatie"),
     UPSTAIRSROOM("Upstairs Room",
     "Boven kamer"),
     ROOMDESCRIPTION("You are ",
@@ -74,7 +74,7 @@ public enum Text{
 
     LIVES1("You have ","Je hebt "),
 
-    LIVES2("Lives left ","Levens over "),
+    LIVES2(" Lives left"," Levens over"),
 
     INVENTORYEMPTY("Your inventory is empty","Je inventaris is leeg"),
 
@@ -117,7 +117,34 @@ public enum Text{
     "Use the pickup CandyCaneSword command to retreive the sword",
     "Je loopt in een geheimzinnige kamer. Voor je is een slee met een zwaard erdoorheen gestoken.\n" +
     "Het zwaard lijkt van zuurstokken gemaakt te zijn?\n" +
-    "Gebruik het pak_op CandyCaneSword commando om het zwaard op te pakken");
+    "Gebruik het pak_op CandyCaneSword commando om het zwaard op te pakken"),
+    
+    EXITS("Exits: ","Uitgangen: "),
+    
+    QUITWHAT("Type 'quit' to quit","typ 'afsluiten', om te stoppen"),
+    
+    ELFWAKES("The elf seems to notice the smell of the watermelon...\n" +
+    "The elf slowly wakes up!\nNow that you come to think about it," +
+    "watermelons don't have such a distinctive smell..\nThese elves sure are magical creatures!\n",
+    "De elf lijkt de geur van de watermeloen op te pakken...\n" +
+    "Hij wordt langzaam wakker!\nNu je er even over nadenkt," +
+    "watermeloenen hebben helemaal geen sterke geur...\nDeze elven zijn echt magisch!\n"),
+    
+    ELFTALKS("Elf: Thanks for waking me up!\nI was supposed to deliver this present to Santa," +
+    "but I got so tired*yawns*\nWould you take it to Santa for me?\nI am gonna take a little nap...",
+    "Elf: Dankjewel dat je me wakker hebt gemaakt!\nIk zou dit cadeautje naar de Kerstman moeten brengen," +
+    "maar ik was zo moe...\nZou jij het cadeautje naar hem willen brengen?\nDan ga ik nog even een dutje doen..."),
+    
+    ELFANNOYED("The elf seems annoyed.\nHe swings with his arm and manages to hit you!\nYou lose one life",
+    "De elf lijkt geïrriteerd.\nHij zwaait met zn arm en krijgt het voor elkaar je in je gezicht te slaan!"+
+    "Je verliest een leven"),
+    
+    CANTFINDITEM("You cannot find that item in this room.",
+    "Dat voorwerp kan je niet vinden in deze kamer."),
+    
+    ADDPRESENT("You have received a Present!",
+    "Je hebt een cadeautje ontvangen!");
+    
 
     private String NederlandsText, EnglishText;
 
