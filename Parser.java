@@ -38,6 +38,7 @@ public class Parser
         String inputLine;   // will hold the full input line
         String word1 = null;
         String word2 = null;
+        String capitalletter = null;
 
         System.out.print("> ");     // print prompt
 
@@ -49,10 +50,12 @@ public class Parser
             word1 = tokenizer.next();      // get first word
             if(tokenizer.hasNext()) {
                 word2 = tokenizer.next();      // get second word
+                capitalletter = word2.substring(0, 1).toUpperCase();
+                word2 = capitalletter + word2.substring(1).toLowerCase();
                 // note: we just ignore the rest of the input line.
             }
         }
-
+        
         return new Command(commands.getCommandWord(word1), word2);
     }
 

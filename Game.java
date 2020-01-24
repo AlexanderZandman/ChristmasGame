@@ -81,7 +81,7 @@ public class Game
 
         santa = new Character(Text.SANTANAME.checkLanguage(Settings.getLanguage()), Text.SANTADESCRIPTION.checkLanguage(Settings.getLanguage()), bag_of_presents,0);         
         mainroom.setCharacter(santa);
-        mainroom.setExit(Text.NORTH.checkLanguage(Settings.getLanguage()), bonusroom);
+        mainroom.setExit(Text.WEST.checkLanguage(Settings.getLanguage()), bonusroom);
         mainroom.setExit(Text.SOUTH.checkLanguage(Settings.getLanguage()), sleeping_elf_room);
         mainroom.setExit(Text.UP.checkLanguage(Settings.getLanguage()), upstairsroom);
 
@@ -118,7 +118,7 @@ public class Game
         mathElf = new Character("Elf",Text.MATHELFTEXT.checkLanguage(Settings.getLanguage()), present,0);
         mathroom.setCharacter(mathElf);
         mathElf.setCharacterQuestion(Text.MATHELFQUESTION.checkLanguage(Settings.getLanguage()), 43200);
-        mathroom.setExit(Text.NORTH.checkLanguage(Settings.getLanguage()), keyroom);
+        mathroom.setExit(Text.EAST.checkLanguage(Settings.getLanguage()), sleeping_elf_room);
 
         //key room
         Character keyElf = new Character("Elf",Text.KEYELFTEXT.checkLanguage(Settings.getLanguage()) , null, 0);
@@ -132,23 +132,25 @@ public class Game
         randomname.add("Item4");
         randomname.add("Item5");
 
-        Item key = new Item(randomItem(randomname), "You have found the key!", 1, 1);
-        Item candycane = new Item(randomItem(randomname), "You have found a candy cane! This could be usefull for later :)", 1, 300);
-        Item trap1 = new Item(randomItem(randomname), "Oh no it's a trap", 1, 0);
-        Item trap3 = new Item(randomItem(randomname), "Oh no it's a trap", 1, 0);
-        Item trap5 = new Item(randomItem(randomname), "Oh no it's a trap", 1, 0);
+        Item key = new Item(randomItem(randomname), Text.FOUNDKEY.checkLanguage(Settings.getLanguage()), 1, 1);
+        Item candycane = new Item(randomItem(randomname), Text.FOUNDCANDYCANE.checkLanguage(Settings.getLanguage()), 1, 300);
+        Item trap1 = new Item(randomItem(randomname), Text.TRAP.checkLanguage(Settings.getLanguage()), 1, 0);
+        Item trap3 = new Item(randomItem(randomname), Text.TRAP.checkLanguage(Settings.getLanguage()), 1, 0);
+        Item trap5 = new Item(randomItem(randomname), Text.TRAP.checkLanguage(Settings.getLanguage()), 1, 0);
         key_items.add(trap1);
         key_items.add(key);
         key_items.add(trap3);
         key_items.add(candycane);
         key_items.add(trap5);
         keyroom.setItem(key_items);
+        keyroom.setExit(Text.NORTH.checkLanguage(Settings.getLanguage()), table_order_room);
 
         //table_order_room
         Character orderElf = new Character("Elf", Text.ORDERELFTEXT.checkLanguage(Settings.getLanguage()), present,0);
         orderElf.setCharacterQuestion(Text.ORDERELFQUESTION.checkLanguage(Settings.getLanguage()), 4);
         table_order_room.setCharacter(orderElf);
         table_order_room.setExit(Text.WEST.checkLanguage(Settings.getLanguage()),sleeping_elf_room);
+        table_order_room.setExit(Text.SOUTH.checkLanguage(Settings.getLanguage()),keyroom);
 
         //sword room
         ArrayList<Item> swordroom_items = new ArrayList<Item>();
@@ -159,6 +161,7 @@ public class Game
 
         //upstairsroom
         upstairsroom.setExit(Text.NORTH.checkLanguage(Settings.getLanguage()), swordroom);
+        upstairsroom.setExit(Text.DOWN.checkLanguage(Settings.getLanguage()), mainroom);
 
         //bonusroom
         Character grinch = new Character("Grinch", Text.GRINCHTEXT.checkLanguage(Settings.getLanguage()), null,0);

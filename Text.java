@@ -56,17 +56,17 @@ public enum Text{
 
     COMMANDSHOW("show", "bekijk"),
 
-    NORTH("north","noord"),
+    NORTH("North","Noord"),
 
-    WEST("west","west"),
+    WEST("West","West"),
 
-    SOUTH("south","zuid"),
+    SOUTH("South","Zuid"),
 
-    EAST("east","oost"),
+    EAST("East","Oost"),
 
-    UP("up","omhoog"),
+    UP("Up","Omhoog"),
 
-    DOWN("down","omlaag"),
+    DOWN("Down","Omlaag"),
 
     THANKS("Thank you for playing.  Good bye.",
     "Bedankt voor het spelen. Tot ziens." ),
@@ -214,9 +214,9 @@ public enum Text{
     "watermeloenen hebben helemaal geen sterke geur...\nDeze elven zijn echt magisch!\n"),
     
     ELFTALKS("Elf: Thanks for waking me up!\nI was supposed to deliver this present to Santa," +
-    "but I got so tired*yawns*\nWould you take it to Santa for me?\nI am gonna take a little nap...",
+    "but I got so tired*yawns*\nWould you take it to Santa for me?\nI am gonna take a little nap and eat this watermelon...",
     "Elf: Dankjewel dat je me wakker hebt gemaakt!\nIk zou dit cadeautje naar de Kerstman moeten brengen," +
-    "maar ik was zo moe...\nZou jij het cadeautje naar hem willen brengen?\nDan ga ik nog even een dutje doen..."),
+    "maar ik was zo moe...\nZou jij het cadeautje naar hem willen brengen?\nDan ga ik nog even een dutje doen en deze watermeloen opeten..."),
     
     ELFANNOYED("The elf seems annoyed.\nHe swings with his arm and manages to hit you!\nYou lose one life",
     "De elf lijkt geïrriteerd.\nHij zwaait met zn arm en krijgt het voor elkaar je in je gezicht te slaan!"+
@@ -254,7 +254,7 @@ public enum Text{
             "1.  Olijfolie is direct links van Zuur.\n" +
             "2.  Zuur zit naast Water.\n" +
             "3.  Gluhwijn is direct rechts van de Schoonmaak spullen" +
-            "4.  Olijf olie is in tegengestelde richting van Gluhwijn.\n" +
+            "4.  Olijf olie is in tegengestelde positie van Gluhwijn.\n" +
             "----Op welke positie zitten de schoonmaak spullen?----\n" +
             "helemaal links = 1 \nmidden links = 2 \nin het midden = 3 \nmiddenrechts = 4 \nhelemaal rechts = 5"),
     
@@ -272,8 +272,12 @@ public enum Text{
     SANTANAME("Santa", "de Kerstman"),
   
     SANTADESCRIPTION("The Grinch has stolen all of the presents, please kind stranger, help me save Christmas",
-    "De Grinch heeft alle cadeautjes gestolen, alsjeblieft vreemdeling, help mij om kerstmis te redden");
+    "De Grinch heeft alle cadeautjes gestolen, alsjeblieft vreemdeling, help mij om kerstmis te redden"),
     
+    FOUNDKEY("You have found the key!","Je hebt de sleutel gevonden!"),
+    
+    FOUNDCANDYCANE("You have found a candy cane! This could be usefull for later...",
+    "Je hebt een zuurstok gevoden, misschien kan dit nog pas komen");
     
     
 
