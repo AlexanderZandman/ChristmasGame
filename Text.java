@@ -13,7 +13,7 @@ public enum Text{
     "In dit spel, moet je de kerstman helpen om puzzels op te lossen!\n" +
     "Typ '" + CommandWord.HELP + "' als je hulp nodig hebt"),
     MAINROOM("in the main entrance room.\nSanta is crying in the corner",
-    "in de algemene kamer, de kerstman zit in de hoek te huilen"),
+    "in de hoofd kamer, de kerstman zit in de hoek te huilen"),
     WATERPUZZLEROOM("in a puzzle room.\n you see a table with " +
     "containers and a sink.\n An Elf is standing in front of you",
     "in een puzzel room. \n je ziet een tafel met bakjes en een kraan. \n een Elf staat voor je"),
@@ -95,13 +95,25 @@ public enum Text{
     FELLINTRAP("Oh no, you fell into a trap.\n You have lost one life",
     "Oh nee, je bent in een val getrapt.\n Je bent één leven verloren"), 
     KEY("Key", "Sleutel"),
-
+    
     KEYDESCR("This key might be able to open a door...",
     "Misschien kan deze sleuten een deur openen..."),
     HELP("You are in Santa's Christmas Cave. Santa needs your help " + 
     " to find all the presents that the Grinch has stolen.\n\nYour command words are:",
     "Je bent in de Kerstman's Kerst Grot. De Kerstman heeft je hulp nodig!" +
     "Je moet alle cadeautjes terug vinden die de Grinch heeft gestolen!\n\nDe Command woorden zijn:"),
+    
+    STRENGTH1("Your strength has increased drastically, ", "Je kracht is enorm gegroeid "),
+    
+    STRENGTH2("you feel so strong, you could possibly even move boulders", "Je voelt je zo sterk, je zou zelfs rotsen kunnen verschuiven"),
+    
+    GAMEOVER("Game over, you ran out of lives", "Spel voorbij, je levens zijn op"),
+    
+    CONGRATULATIONS("Congratulations, you have finished the game!\nFeel free to replay the game whenever you want", 
+    "Gefeliciteerd, je hebt het spel uitgespeeld!\nJe bent welkom om het spel wanneer je maar wilt, opnieuw te spelen"),
+    
+    PICKEDUP("You have picked up ", "Je hebt opgepakt "),
+    
     PEAS("Peas","Erwten"),
 
     KIWI("Kiwi","Kiwi"),
@@ -127,9 +139,71 @@ public enum Text{
     "Het zwaard lijkt van zuurstokken gemaakt te zijn?\n" +
     "Gebruik het pak_op CandyCaneSword commando om het zwaard op te pakken"),
     
+    GRINCHFIGHT1("You hit the Grinch for 1 damage!", "Je hebt de Grinch geraakt voor 1 levenspunt"),
+    
+    GRINCHFIGHT2("He has ", "Hij heeft "),
+    
+    GRINCHFIGHT3(" remaining", " over"),
+    
+    GRINCHFIGHT4("The Grinch retaliated!", "De Grinch sloeg terug!"),
+    
+    GRINCHFIGHT5("You have been hit for 1 life", "Je bent geraakt voor 1 leven"),
+    
+    GRINCHFIGHT6("You have ", "Jij hebt"),
+    
+    GRINCHFIGHT7(" remaining", " over"),
+    
+    GRINCHDEF1("You have defeated the Grinch!", "Je hebt de Grinch verslagen!"),
+    
+    GRINCHDEF2("Upon his defeat he has dropped the final present!", "Toen hij verslagen werd, heeft hij het laatste cadeautje laten vallen!"),
+    
+    GRINCHDEF3("Use the [pickup Present] command to pick it up", "Gebruik het [pakop Cadeautje] commando om het op te pakken"),
+    
+    GRINCHDEF4("After you have picked up the final present, go back to the main room and deliver the presents to Santa.", 
+    "Na dat je het cadeautje hebt, kun je terugkeren naar de hoofd kamer en de cadeautjes aan de kerstman geven"),
+    
     EXITS("Exits: ","Uitgangen: "),
     
     QUITWHAT("Type 'quit' to quit","typ 'afsluiten', om te stoppen"),
+    
+    NODOOR("There is no door!", "Daar is geen deur!"),
+    
+    UNLOCKDOOR("You have unlocked the door!", "Je hebt de deur geopend!"),
+    
+    LOCKEDDOOR("The door is locked! You need a key", "De deur zit op slot! Je hebt een sleutel nodig"),
+    
+    BOULDER1("You have moved the boulder!", "Je hebt de rots verplaatst!"),
+    
+    BOULDER2("You are not strong enough to move the boulder", "Je bent niet sterk genoeg om de rots te verplaatsen"),
+    
+    CANTTALK("This person cannot talk", "Dit personage kan niet praten"),
+    
+    YOURANSWER("\nYour answer: ", "\nJouw antwoord: "),
+    
+    YOUENTERED("You entered ", "Jij hebt ingevuld "),
+    
+    CORRECTANSWER("That's the correct answer\n", "Dat is het juiste antwoord\n"),
+    
+    CHARNOITEM("Sorry this character does not have an item for you", "Sorry dit character heeft geen item evoor jou"),
+    
+    COMPLETED("already completed", "al voltood"),
+    
+    NOTINROOM("This character is not in this room", "Dit karakter is niet in deze kamer"),
+    
+    INCORRECT("No, that is incorrect.\nTalk to me once more to try again", "Nee, dat is fout.\nPraat nog een keer met mij om het opnieuw te proberen"),
+    
+    ANSWERNUMBER("Your answer must be a number." +
+                "\nTalk to me once more to try again",
+                "Jouw antwoord moet een getal zijn." +
+                "\nPraat nogmaals met mij om het opnieuw te proberen"),
+                
+    GOBACKTOOFAR("This is where you started, you cannot go back" + 
+                " any further!",
+                "Dit is waar je begon, je kunt niet verder terug!"),
+    
+    RECEIVED("You have received ", "Je hebt gekregen "),
+    
+    SAVEDCHRISTMAS("You did it, you saved Christmas!", "Het is je gelukt, je hebt Kerstmis gered!"),
     
     ELFWAKES("The elf seems to notice the smell of the watermelon...\n" +
     "The elf slowly wakes up!\nNow that you come to think about it," +
@@ -152,6 +226,10 @@ public enum Text{
     
     ADDPRESENT("You have received a Present!",
     "Je hebt een cadeautje ontvangen!"),
+    
+    CCNAME("Candycane", "Zuurstok"),
+    
+    CCDESCRIPTION("A candycane! This could be useful for later :)","Een zuurstok! Dit kan handig zijn voor later :)"),
     
     CCSNAME("CandyCaneSword", "ZuurStokZwaard"),
     

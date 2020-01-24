@@ -35,7 +35,7 @@ public class Game
     private int grinch_hp = 3;
     private int boulder = 300;
     private int hasSword;
-    Item present = new Item(Text.PRESENTNAME.checkLanguage(settings.getLanguage()), Text.PRESENTDESCRIPTION.checkLanguage(settings.getLanguage()), 1, 0);
+    Item present;
     private int quitmessage;
     /**
      * Create the game and initialise its internal map.
@@ -58,7 +58,7 @@ public class Game
 
         //items
         Item bag_of_presents = new Item(Text.BAGNAME.checkLanguage(settings.getLanguage()), Text.BAGDESCRIPTION.checkLanguage(settings.getLanguage()), 1, 0);
-        Item present = new Item(Text.PRESENTNAME.checkLanguage(settings.getLanguage()), Text.PRESENTDESCRIPTION.checkLanguage(settings.getLanguage()), 1, 0);
+        present = new Item(Text.PRESENTNAME.checkLanguage(settings.getLanguage()), Text.PRESENTDESCRIPTION.checkLanguage(settings.getLanguage()), 1, 0);
 
         // create the rooms
         Room mainroom = new Room(Text.MAINROOM.checkLanguage(settings.getLanguage()), 0);
@@ -192,11 +192,11 @@ public class Game
             break;
 
             case(1):
-            System.out.println("Game over, you ran out of lives");
+            System.out.println(Text.GAMEOVER.checkLanguage(settings.getLanguage()));
             break;
 
             case(2):
-            System.out.println("Congratulations, you have finished the game!\nFeel free to play it again whenever you want");
+            System.out.println(Text.CONGRATULATIONS.checkLanguage(settings.getLanguage()));
             break;
         }
     }
@@ -373,13 +373,13 @@ public class Game
                     isInRoom = 1;
                 }
                 if(newitem.item_getDescription() == "You have found a candy cane! This could be usefull for later :)"){
-                    newitem.item_changeName("Candycane");
-                    newitem.item_changeDescription("A candy cane! This could be useful for later :)");
+                    newitem.item_changeName(Text.CCNAME.checkLanguage(settings.getLanguage()));
+                    newitem.item_changeDescription(Text.CCDESCRIPTION.checkLanguage(settings.getLanguage()));
                     isInRoom = 1;
                 }
                 if(inventory.contains(newitem)){
                     newitem.item_increaseAmount();
-                    System.out.println("You have picked up " + newitem.item_getName() + "!");
+                    System.out.println(Text.PICKEDUP.checkLanguage(settings.getLanguage()) + newitem.item_getName() + "!");
                     currentRoom.unsetItem(newitem);
                     isInRoom = 1;
                     break;
@@ -409,7 +409,7 @@ public class Game
                     if (inventory.contains(newitem)){
                         newitem.item_increaseAmount();}
                     else{inventory.add(newitem);}        
-                    System.out.println("You have picked up " + newitem.item_getName() + "!");
+                    System.out.println(Text.PICKEDUP.checkLanguage(settings.getLanguage()) + newitem.item_getName() + "!");
                     currentRoom.unsetItem(newitem);
                     isInRoom = 1;
                     break;
@@ -438,9 +438,9 @@ public class Game
             }
         }
         //player.setStrength(item.item_getUse());
-        if(strength > 1){
-            System.out.println("Your strength has increased drastically, ");
-            System.out.println("you feel so strong, you could possibly even move boulders");
+        if(player.getStrength() > 1){ 
+            System.out.println(Text.STRENGTH1.checkLanguage(settings.getLanguage()));
+            System.out.println(Text.STRENGTH2.checkLanguage(settings.getLanguage()));
         }
     }
 
@@ -485,14 +485,14 @@ public class Game
             if(grinch_hp > 0){
                 if(currentRoom.getCharacter().getCharacterName() == "Grinch"){
                     grinch_hp = grinch_hp - 1;
-                    System.out.println("You hit The Grinch for 1 damage!");
+                    System.out.println(Text.GRINCHFIGHT1.checkLanguage(settings.getLanguage()));
                     System.out.println();
-                    System.out.println("He has " + grinch_hp + " remaining");
+                    System.out.println(Text.GRINCHFIGHT2.checkLanguage(settings.getLanguage()) + grinch_hp + Text.GRINCHFIGHT3.checkLanguage(settings.getLanguage()));
                     System.out.println();
                     player.rmLives(1);
-                    System.out.println("The Grinch retaliated!");
-                    System.out.println("You have been hit for 1 life");
-                    System.out.println("You have " + player.getLives() + " remaining");
+                    System.out.println(Text.GRINCHFIGHT4.checkLanguage(settings.getLanguage()));
+                    System.out.println(Text.GRINCHFIGHT5.checkLanguage(settings.getLanguage()));
+                    System.out.println(Text.GRINCHFIGHT6.checkLanguage(settings.getLanguage()) + player.getLives() + Text.GRINCHFIGHT7.checkLanguage(settings.getLanguage()));
                 }
             }else{
                 if(currentRoom.getCharacter().getCharacterName() == "Grinch"){
@@ -501,12 +501,12 @@ public class Game
                     currentRoom.setItem(bonusroom_items);
                 }
                 currentRoom.rmCharacter(currentRoom.getCharacter());
-                System.out.println("You have defeated the Grinch!");
+                System.out.println(Text.GRINCHDEF1.checkLanguage(settings.getLanguage()));
                 System.out.println();
-                System.out.println("Upon his death he has dropped the final present!");
-                System.out.println("Use the [pickup Present] command to pick it up");
+                System.out.println(Text.GRINCHDEF2.checkLanguage(settings.getLanguage()));
+                System.out.println(Text.GRINCHDEF3.checkLanguage(settings.getLanguage()));
                 System.out.println();
-                System.out.println("After you have picked up the presents, go back to the main room and deliver the presents to Santa.");
+                System.out.println(Text.GRINCHDEF4.checkLanguage(settings.getLanguage()));
             }
         }
 
@@ -530,34 +530,34 @@ public class Game
         // Try to leave current room.
         Room nextRoom = currentRoom.getExit(direction);
         if (nextRoom == null) {
-            System.out.println("There is no door!");
+            System.out.println(Text.NODOOR.checkLanguage(settings.getLanguage()));
         }else{
         if (nextRoom.isLocked() == 1)
         {
-            String theitem = "Key";
+            String theitem = Text.KEY.checkLanguage(settings.getLanguage());
             int gotkey = 0;
             for(Item item : inventory){
                 if(item.item_getName().equals(theitem)){
-                    System.out.println("You have unlocked the door!");
+                    System.out.println(Text.UNLOCKDOOR.checkLanguage(settings.getLanguage()));
                     System.out.println();
                     currentRoom = nextRoom;
                     System.out.println(currentRoom.getLongDescription());
                     gotkey = 1;
                 }
                 if (gotkey != 0){
-                    System.out.println("The door is locked! You need a key");
+                    System.out.println(Text.LOCKEDDOOR.checkLanguage(settings.getLanguage()));
                 }
             }
         }
         if (nextRoom.isLocked() == 300)
         {
             if(player.getStrength() == boulder){
-                System.out.println("You have moved the boulder!");
+                System.out.println(Text.BOULDER1.checkLanguage(settings.getLanguage()));
                 System.out.println();
                 currentRoom = nextRoom;
                 System.out.println(currentRoom.getLongDescription());
             }else{
-                System.out.println("You are not strong enough to move the boulder");
+                System.out.println(Text.BOULDER2.checkLanguage(settings.getLanguage()));
             }
         }
         if (nextRoom.isLocked() == 0) {
@@ -588,7 +588,7 @@ public class Game
                 if (npc2.getCharacterText() != null){
                     System.out.println(npc2.getCharacterText());
                     if(npc2.getCharacterQuestion() == null && npc2.getCharacterItem() != null){
-                        System.out.println("You have received " + npc2.getCharacterItem().item_getName());
+                        System.out.println(Text.RECEIVED.checkLanguage(settings.getLanguage()) + npc2.getCharacterItem().item_getName());
     
                         if (inventory.contains(npc2.getCharacterItem()))
                                 {present.item_increaseAmount();}
@@ -598,11 +598,11 @@ public class Game
     
                 }
                 else{
-                    System.out.println("This person cannot talk");
+                    System.out.println(Text.CANTTALK.checkLanguage(settings.getLanguage()));
                 }
             }
             else{
-            System.out.println("This character is not in this room");
+            System.out.println(Text.NOTINROOM.checkLanguage(settings.getLanguage()));
             }
         }    
         
@@ -612,9 +612,9 @@ public class Game
         if(currentRoom.getShortDescription() == Text.MAINROOM.checkLanguage(settings.getLanguage())){
             if (inventory.contains(present)){
                 int index = inventory.indexOf(present);
-                if  (inventory.get(index).item_getAmount() == 3)
+                if  (inventory.get(index).item_getAmount() == 4)
                 {
-                    currentRoom.getCharacter().changeCharacterText("You did it, you saved Christmas!");
+                    currentRoom.getCharacter().changeCharacterText(Text.SAVEDCHRISTMAS.checkLanguage(settings.getLanguage()));
                 }
             }
         }
@@ -625,7 +625,7 @@ public class Game
             }
             else
             {
-              System.out.println("already completed");
+              System.out.println(Text.COMPLETED.checkLanguage(settings.getLanguage()));
             }
         }
     }
@@ -637,30 +637,29 @@ public class Game
      */
     private void askForAnswer(String question,Integer answer){
         Scanner input = new Scanner(System.in);
-        System.out.print(question + "\nYour answer: ");
+        System.out.print(question + Text.YOURANSWER.checkLanguage(settings.getLanguage()));
         if (input.hasNextInt()){ 
 
             int number = input.nextInt();
-            System.out.println("You entered " + number);
+            System.out.println(Text.YOUENTERED.checkLanguage(settings.getLanguage()) + number);
             if (number == answer){
-                System.out.println("That's the correct answer\n");
+                System.out.println(Text.CORRECTANSWER.checkLanguage(settings.getLanguage()));
                 if(currentRoom.getCharacter().getCharacterItem() != null){
                     if (inventory.contains(present))
                             {present.item_increaseAmount();}
                     else{inventory.add(present);} 
-                    System.out.println("You have received a " + currentRoom.getCharacter().getCharacterItem().item_getName() + "!");
+                    System.out.println(Text.RECEIVED.checkLanguage(settings.getLanguage()) + currentRoom.getCharacter().getCharacterItem().item_getName() + "!");
                 }else{
-                    System.out.println("Sorry this character does not have an item for you");
+                    System.out.println(Text.CHARNOITEM.checkLanguage(settings.getLanguage()));
                 }
 
             }
             else{
-                System.out.println("No, that is incorrect.\nTalk to me once more to try again");
+                System.out.println(Text.INCORRECT.checkLanguage(settings.getLanguage()));
             }
         }
         else{
-            System.out.println("Your answer must be a number." +
-                "\nTalk to me once more, to try again");
+            System.out.println(Text.ANSWERNUMBER.checkLanguage(settings.getLanguage()));
         }
     }
 
@@ -676,8 +675,7 @@ public class Game
             System.out.println(currentRoom.getLongDescription());
         }
         else{
-            System.out.println("This is where you started, cannot go back" + 
-                " further!");
+            System.out.println(Text.GOBACKTOOFAR.checkLanguage(settings.getLanguage()));
         }
     }
 
