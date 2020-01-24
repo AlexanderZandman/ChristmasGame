@@ -111,6 +111,14 @@ public enum Text{
     WATERMELON("Watermelon","Watermeloen"),
 
     BEANS("Beans","Bonen"),
+    
+    BAGNAME("Bag of Presents", "Zak voor Cadeautjes"),
+    
+    BAGDESCRIPTION("An empty bag that can be filled with presents", "Een lege zak die met cadeautjes gevuld kan worden"),
+    
+    PRESENTNAME("Present", "Cadeautje"),
+    
+    PRESENTDESCRIPTION("It is one of the missing presents", "Het is één van de vermiste cadeautjes"),
 
     SWORDROOM("You walk inside of a mysterious room. In front of you is a sleigh with a sword pierced through it." +
     "\nThe sword appears to be made out of Candy Canes?\n" +
@@ -143,7 +151,47 @@ public enum Text{
     "Dat voorwerp kan je niet vinden in deze kamer."),
     
     ADDPRESENT("You have received a Present!",
-    "Je hebt een cadeautje ontvangen!");
+    "Je hebt een cadeautje ontvangen!"),
+    
+    CCSNAME("CandyCaneSword", "ZuurStokZwaard"),
+    
+    CCSDESCRIPTION("The mighty CandyCaneSword! You can use this to slay the evil Grinch", 
+    "De machtige ZuurStokZwaard! Je kunt het gebruiken om de kwaadaardige Grinch te verslaan"),
+    
+    GRINCHTEXT("So, you have finally found me", "Dus, je hebt mij eindelijk gevonden"),
+     
+    ORDERELFQUESTION("We need to find cleaning supplies. \n" +
+            "There are 4 statements to help find the right bottle:\n" +
+            "1.  Olive oil is directly left of Acid.\n" +
+            "2.  Acid is next to Water.\n" +
+            "3.  Gluh wine is directly right of Cleaning supplies\n" +
+            "4.  Olive oil is opposite Gluh wine.\n" +
+            "----At which position are the cleaning supplies?----\n" +
+            "far left = 1 \nmiddle left = 2 \nmiddle = 3 \nmiddleright = 4 \nfar right = 5",
+            "We moeten schoonmaak spullen vinden. \n" + 
+            "Er zijn 4 stellingen die mij kunnen helpen om de jusite fles te vinden:\n" +
+            "1.  Olijfolie is direct links van Zuur.\n" +
+            "2.  Zuur zit naast Water.\n" +
+            "3.  Gluhwijn is direct rechts van de Schoonmaak spullen" +
+            "4.  Olijf olie is in tegengestelde richting van Gluhwijn.\n" +
+            "----Op welke positie zitten de schoonmaak spullen?----\n" +
+            "helemaal links = 1 \nmidden links = 2 \nin het midden = 3 \nmiddenrechts = 4 \nhelemaal rechts = 5"),
+    
+    ORDERELFTEXT("I need to find the right bottle to clean up this mess!\n" + "Santa told me which bottle to use, but i can't figure it out, would you help me please?",
+    "Ik moet de juiste fles vinden om deze rotzooi op te ruimen!\n " + "De kerstman heeft mij verteld welke fles ik moest gebruiken, maar ik snap re niks van, zou jij mij willen helpen alsjeblieft?"),
+    
+    KEYELFTEXT("I can't seem to find the key.\nThese five boxes contain items, one of them is the hidden key!\nBut the others could be traps,\nI am too afraid to open them, you have to open them for me!\nUse the pickup command, and choose between Item1, Item2, Item3, Item4 and Item5.",
+    "Ik kan nergens de sleutel vinden.\nDeze vijf dozen bevatten voorwerpen, een van die voorwerpen is de verstopte sleutel!\nMaar de anderen kunnen vallen zijn\nIk ben te bang om ze open te maken, jij moet het voor mij doen\nGebruik het pak_op commando en kies tussen Item1, Item2, Item3, Item4 en Item5."),
+    
+    MATHELFTEXT("Please help me solve this math puzzle!\n", "Alsjeblieft help mij met deze wiskunde puzzel\n"),
+    
+    MATHELFQUESTION("Santa has to visit 2400 houses where he delivers presents.\nEach house contains three children. Every child receives amount of houses divided by 400 in gifts.\nHow many gifts does Santa have to deliver in total? \n",
+    "De kerstman moet bij 2400 huizen cadeautjes bezorgen.\nPer huis zijn er 3 kinderen. Elk kind krijgt het aantal huizen gedeeld door 400 aan cadeaus.\nHoeveel cadeaus worden er in totaal door de kerstman bezorgd? \n"),
+    
+    SANTANAME("Santa", "de Kerstman"),
+  
+    SANTADESCRIPTION("The Grinch has stolen all of the presents, please kind stranger, help me save Christmas",
+    "De Grinch heeft alle cadeautjes gestolen, alsjeblieft vreemdeling, help mij om kerstmis te redden");
     
     
     
