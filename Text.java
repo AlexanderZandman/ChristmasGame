@@ -174,7 +174,8 @@ public enum Text{
     
     BOULDER1("You have moved the boulder!", "Je hebt de rots verplaatst!"),
     
-    BOULDER2("You are not strong enough to move the boulder", "Je bent niet sterk genoeg om de rots te verplaatsen"),
+    BOULDER2("You are not strong enough to move the boulder.\nMaybe you can look in the room, where you found the key, for some sort of candy?", 
+    "Je bent niet sterk genoeg om de rots te verplaatsen.\nMisschien is er in de kamer, waar je de sleutel gevonden hebt, voor een soort snoepgoed?"),
     
     CANTTALK("This person cannot talk", "Dit personage kan niet praten"),
     
@@ -237,6 +238,8 @@ public enum Text{
     "De machtige ZuurStokZwaard! Je kunt het gebruiken om de kwaadaardige Grinch te verslaan"),
     
     GRINCHTEXT("So, you have finally found me", "Dus, je hebt mij eindelijk gevonden"),
+    
+    WHATITEM("What item do you want to use?", "Welk item wil je gebruiken?"),
      
     ORDERELFQUESTION("We need to find cleaning supplies. \n" +
             "There are 4 statements to help find the right bottle:\n" +
@@ -281,16 +284,8 @@ public enum Text{
         this.EnglishText = EnglishText;
     }
 
-    public String getNederlandsText() {
-        return NederlandsText;
-    }
-
-    public String getEnglishText() {
-        return EnglishText;
-    }
-
     public String checkLanguage(int language){
-        if (language == 0){
+        if (Settings.getLanguage() == 0){
             return EnglishText;
         }
         if (language == 1){

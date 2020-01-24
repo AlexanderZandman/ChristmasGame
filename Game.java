@@ -26,12 +26,12 @@ public class Game
     private Random random;
     private ArrayList<Room> prevRooms;
     private ArrayList<Item> inventory = new ArrayList<Item>();
-    private Settings settings;
+//    private Settings Settings;
     private Scanner scanner = new Scanner(System.in);
     private int lives = 6;
     private int strength;
     private Player player;
-    public static int userinput;
+    public static int language;
     private int grinch_hp = 3;
     private int boulder = 300;
     private int hasSword;
@@ -45,7 +45,10 @@ public class Game
 
         //comment om te testen
     }
-
+    public static void main(String[] args){
+        Game game = new Game();
+        game.play();
+    }
     /**
      * Create all the rooms and link their exits together.
      */
@@ -57,18 +60,18 @@ public class Game
         Character santa, waterElf, sleepingElf, mathElf;    
 
         //items
-        Item bag_of_presents = new Item(Text.BAGNAME.checkLanguage(settings.getLanguage()), Text.BAGDESCRIPTION.checkLanguage(settings.getLanguage()), 1, 0);
-        present = new Item(Text.PRESENTNAME.checkLanguage(settings.getLanguage()), Text.PRESENTDESCRIPTION.checkLanguage(settings.getLanguage()), 1, 0);
+        Item bag_of_presents = new Item(Text.BAGNAME.checkLanguage(Settings.getLanguage()), Text.BAGDESCRIPTION.checkLanguage(Settings.getLanguage()), 1, 0);
+        present = new Item(Text.PRESENTNAME.checkLanguage(Settings.getLanguage()), Text.PRESENTDESCRIPTION.checkLanguage(Settings.getLanguage()), 1, 0);
 
         // create the rooms
-        Room mainroom = new Room(Text.MAINROOM.checkLanguage(settings.getLanguage()), 0);
-        Room keyroom = new Room(Text.KEYROOM.checkLanguage(settings.getLanguage()), 0);
-        Room sleeping_elf_room = new Room(Text.SLEEPING_ELF_ROOM.checkLanguage(settings.getLanguage()), 0);
-        Room mathroom = new Room(Text.MATHROOM.checkLanguage(settings.getLanguage()), 0);
-        Room table_order_room = new Room(Text.TABLE_ORDER_ROOM.checkLanguage(settings.getLanguage()), 0);
-        Room upstairsroom = new Room(Text.UPSTAIRSROOM.checkLanguage(settings.getLanguage()), 0);
+        Room mainroom = new Room(Text.MAINROOM.checkLanguage(Settings.getLanguage()), 0);
+        Room keyroom = new Room(Text.KEYROOM.checkLanguage(Settings.getLanguage()), 0);
+        Room sleeping_elf_room = new Room(Text.SLEEPING_ELF_ROOM.checkLanguage(Settings.getLanguage()), 0);
+        Room mathroom = new Room(Text.MATHROOM.checkLanguage(Settings.getLanguage()), 0);
+        Room table_order_room = new Room(Text.TABLE_ORDER_ROOM.checkLanguage(Settings.getLanguage()), 0);
+        Room upstairsroom = new Room(Text.UPSTAIRSROOM.checkLanguage(Settings.getLanguage()), 0);
         Room bonusroom = new Room("the grinch", 300);
-        Room swordroom = new Room(Text.SWORDROOM.checkLanguage(settings.getLanguage()), 1);
+        Room swordroom = new Room(Text.SWORDROOM.checkLanguage(Settings.getLanguage()), 1);
 
         //add items, characters and exits to rooms
 
@@ -76,25 +79,25 @@ public class Game
         ArrayList<Item> main_items = new ArrayList<Item>();
         mainroom.setItem(main_items);
 
-        santa = new Character(Text.SANTANAME.checkLanguage(settings.getLanguage()), Text.SANTADESCRIPTION.checkLanguage(settings.getLanguage()), bag_of_presents,0);         
+        santa = new Character(Text.SANTANAME.checkLanguage(Settings.getLanguage()), Text.SANTADESCRIPTION.checkLanguage(Settings.getLanguage()), bag_of_presents,0);         
         mainroom.setCharacter(santa);
-        mainroom.setExit(Text.NORTH.checkLanguage(settings.getLanguage()), bonusroom);
-        mainroom.setExit(Text.SOUTH.checkLanguage(settings.getLanguage()), sleeping_elf_room);
-        mainroom.setExit(Text.UP.checkLanguage(settings.getLanguage()), upstairsroom);
+        mainroom.setExit(Text.NORTH.checkLanguage(Settings.getLanguage()), bonusroom);
+        mainroom.setExit(Text.SOUTH.checkLanguage(Settings.getLanguage()), sleeping_elf_room);
+        mainroom.setExit(Text.UP.checkLanguage(Settings.getLanguage()), upstairsroom);
 
 
         //sleepingelf room
         ArrayList<Item> sleeping_items = new ArrayList<Item>();
-        Item Peas = new Item(Text.PEAS.checkLanguage(settings.getLanguage())
-            ,Text.PEAS.checkLanguage(settings.getLanguage()),1,1);
-        Item Kiwi = new Item(Text.KIWI.checkLanguage(settings.getLanguage())
-            ,Text.KIWI.checkLanguage(settings.getLanguage()),1,1);
-        Item Chili = new Item(Text.CHILI.checkLanguage(settings.getLanguage())
-            ,Text.CHILI.checkLanguage(settings.getLanguage()),1,1);
-        Item Watermelon = new Item(Text.WATERMELON.checkLanguage(settings.getLanguage())
-            ,Text.WATERMELON.checkLanguage(settings.getLanguage()),1,1);
-        Item Beans = new Item(Text.BEANS.checkLanguage(settings.getLanguage())
-            ,Text.BEANS.checkLanguage(settings.getLanguage()),1,1);
+        Item Peas = new Item(Text.PEAS.checkLanguage(Settings.getLanguage())
+            ,Text.PEAS.checkLanguage(Settings.getLanguage()),1,1);
+        Item Kiwi = new Item(Text.KIWI.checkLanguage(Settings.getLanguage())
+            ,Text.KIWI.checkLanguage(Settings.getLanguage()),1,1);
+        Item Chili = new Item(Text.CHILI.checkLanguage(Settings.getLanguage())
+            ,Text.CHILI.checkLanguage(Settings.getLanguage()),1,1);
+        Item Watermelon = new Item(Text.WATERMELON.checkLanguage(Settings.getLanguage())
+            ,Text.WATERMELON.checkLanguage(Settings.getLanguage()),1,1);
+        Item Beans = new Item(Text.BEANS.checkLanguage(Settings.getLanguage())
+            ,Text.BEANS.checkLanguage(Settings.getLanguage()),1,1);
 
         sleeping_items.add(Peas);
         sleeping_items.add(Kiwi);
@@ -107,18 +110,18 @@ public class Game
         sleepingElf = new Character("Elf","ZzZ... zZz...", null,0);
         sleeping_elf_room.setCharacter(sleepingElf);
 
-        sleeping_elf_room.setExit(Text.NORTH.checkLanguage(settings.getLanguage()), mainroom);
-        sleeping_elf_room.setExit(Text.WEST.checkLanguage(settings.getLanguage()), mathroom);
-        sleeping_elf_room.setExit(Text.EAST.checkLanguage(settings.getLanguage()), table_order_room);
+        sleeping_elf_room.setExit(Text.NORTH.checkLanguage(Settings.getLanguage()), mainroom);
+        sleeping_elf_room.setExit(Text.WEST.checkLanguage(Settings.getLanguage()), mathroom);
+        sleeping_elf_room.setExit(Text.EAST.checkLanguage(Settings.getLanguage()), table_order_room);
 
         //math room
-        mathElf = new Character("Elf",Text.MATHELFTEXT.checkLanguage(settings.getLanguage()), present,0);
+        mathElf = new Character("Elf",Text.MATHELFTEXT.checkLanguage(Settings.getLanguage()), present,0);
         mathroom.setCharacter(mathElf);
-        mathElf.setCharacterQuestion(Text.MATHELFQUESTION.checkLanguage(settings.getLanguage()), 43200);
-        mathroom.setExit(Text.NORTH.checkLanguage(settings.getLanguage()), keyroom);
+        mathElf.setCharacterQuestion(Text.MATHELFQUESTION.checkLanguage(Settings.getLanguage()), 43200);
+        mathroom.setExit(Text.NORTH.checkLanguage(Settings.getLanguage()), keyroom);
 
         //key room
-        Character keyElf = new Character("Elf",Text.KEYELFTEXT.checkLanguage(settings.getLanguage()) , null, 0);
+        Character keyElf = new Character("Elf",Text.KEYELFTEXT.checkLanguage(Settings.getLanguage()) , null, 0);
         keyroom.setCharacter(keyElf);
         ArrayList<Item> key_items = new ArrayList<Item>();
 
@@ -142,23 +145,23 @@ public class Game
         keyroom.setItem(key_items);
 
         //table_order_room
-        Character orderElf = new Character("Elf", Text.ORDERELFTEXT.checkLanguage(settings.getLanguage()), present,0);
-        orderElf.setCharacterQuestion(Text.ORDERELFQUESTION.checkLanguage(settings.getLanguage()), 4);
+        Character orderElf = new Character("Elf", Text.ORDERELFTEXT.checkLanguage(Settings.getLanguage()), present,0);
+        orderElf.setCharacterQuestion(Text.ORDERELFQUESTION.checkLanguage(Settings.getLanguage()), 4);
         table_order_room.setCharacter(orderElf);
-        table_order_room.setExit(Text.WEST.checkLanguage(settings.getLanguage()),sleeping_elf_room);
+        table_order_room.setExit(Text.WEST.checkLanguage(Settings.getLanguage()),sleeping_elf_room);
 
         //sword room
         ArrayList<Item> swordroom_items = new ArrayList<Item>();
-        Item candycane_sword = new Item(Text.CCSNAME.checkLanguage(settings.getLanguage()), Text.CCSDESCRIPTION.checkLanguage(settings.getLanguage()), 1, 0);
+        Item candycane_sword = new Item(Text.CCSNAME.checkLanguage(Settings.getLanguage()), Text.CCSDESCRIPTION.checkLanguage(Settings.getLanguage()), 1, 0);
         swordroom_items.add(candycane_sword);
         swordroom.setItem(swordroom_items);
-        swordroom.setExit(Text.SOUTH.checkLanguage(settings.getLanguage()), upstairsroom);
+        swordroom.setExit(Text.SOUTH.checkLanguage(Settings.getLanguage()), upstairsroom);
 
         //upstairsroom
-        upstairsroom.setExit(Text.NORTH.checkLanguage(settings.getLanguage()), swordroom);
+        upstairsroom.setExit(Text.NORTH.checkLanguage(Settings.getLanguage()), swordroom);
 
         //bonusroom
-        Character grinch = new Character("Grinch", Text.GRINCHTEXT.checkLanguage(settings.getLanguage()), null,0);
+        Character grinch = new Character("Grinch", Text.GRINCHTEXT.checkLanguage(Settings.getLanguage()), null,0);
         bonusroom.setCharacter(grinch);
         currentRoom = mainroom;
     }
@@ -169,12 +172,10 @@ public class Game
     public void play() 
     {         
         System.out.println("What language do you want to play the game in? Type 0 for English, type 1 for Dutch");
-        userinput = scanner.nextInt();
-        this.userinput = userinput;
+        language = scanner.nextInt();
         parser = new Parser();
         prevRooms = new ArrayList();
-        settings = new Settings();
-        settings.setLanguage(userinput);
+        Settings.setLanguage(language);
         player = new Player(inventory, lives, strength);
         createRooms();
         printWelcome();
@@ -188,15 +189,15 @@ public class Game
         }
         switch(quitmessage){
             case(0):
-            System.out.println(Text.THANKS.checkLanguage(settings.getLanguage()));
+            System.out.println(Text.THANKS.checkLanguage(Settings.getLanguage()));
             break;
 
             case(1):
-            System.out.println(Text.GAMEOVER.checkLanguage(settings.getLanguage()));
+            System.out.println(Text.GAMEOVER.checkLanguage(Settings.getLanguage()));
             break;
 
             case(2):
-            System.out.println(Text.CONGRATULATIONS.checkLanguage(settings.getLanguage()));
+            System.out.println(Text.CONGRATULATIONS.checkLanguage(Settings.getLanguage()));
             break;
         }
     }
@@ -206,9 +207,9 @@ public class Game
      */
     private void printWelcome()
     {
-        System.out.println(Text.WELCOME.checkLanguage(settings.getLanguage()));
+        System.out.println(Text.WELCOME.checkLanguage(Settings.getLanguage()));
         System.out.println();
-        System.out.println(Text.ROOMDESCRIPTION.checkLanguage(settings.getLanguage()) + currentRoom.getLongDescription());
+        System.out.println(Text.ROOMDESCRIPTION.checkLanguage(Settings.getLanguage()) + currentRoom.getLongDescription());
     }
 
     /**
@@ -229,7 +230,7 @@ public class Game
 
         switch (commandWord) {
             case UNKNOWN:
-            System.out.println(Text.UNKNOWN.checkLanguage(settings.getLanguage()));
+            System.out.println(Text.UNKNOWN.checkLanguage(Settings.getLanguage()));
             break;
 
             case HELP:
@@ -241,7 +242,7 @@ public class Game
             break;
 
             case TALK:
-            if(currentRoom.getShortDescription() == Text.MAINROOM.checkLanguage(settings.getLanguage()) && currentRoom.getCharacter().getCharacterText() =="You did it, you saved Christmas!")
+            if(currentRoom.getShortDescription() == Text.MAINROOM.checkLanguage(Settings.getLanguage()) && currentRoom.getCharacter().getCharacterText() =="You did it, you saved Christmas!")
             {
                 quitmessage = 2;
                 wantToQuit = true;
@@ -293,8 +294,8 @@ public class Game
      * Gets the amount of player lives and prints these for the player to see
      */
     private void amountLives(){
-        System.out.println(Text.LIVES1.checkLanguage(settings.getLanguage()) + player.getLives() + 
-            (Text.LIVES2.checkLanguage(settings.getLanguage())));
+        System.out.println(Text.LIVES1.checkLanguage(Settings.getLanguage()) + player.getLives() + 
+            (Text.LIVES2.checkLanguage(Settings.getLanguage())));
     }
 
     /**
@@ -303,15 +304,15 @@ public class Game
     private void showInventory()
     {
         if(inventory.size() < 1){
-            System.out.println(Text.INVENTORYEMPTY.checkLanguage(settings.getLanguage()));
+            System.out.println(Text.INVENTORYEMPTY.checkLanguage(Settings.getLanguage()));
         }else{
             for(Item item : inventory){
                 String name = item.item_getName();
                 String description = item.item_getDescription();
                 int amount = item.item_getAmount();
-                System.out.println(Text.ITEMNAME.checkLanguage(settings.getLanguage()) + name);
-                System.out.println(Text.ITEMDESC.checkLanguage(settings.getLanguage()) + description);
-                System.out.println(Text.ITEMAMOUNT.checkLanguage(settings.getLanguage()) + amount);
+                System.out.println(Text.ITEMNAME.checkLanguage(Settings.getLanguage()) + name);
+                System.out.println(Text.ITEMDESC.checkLanguage(Settings.getLanguage()) + description);
+                System.out.println(Text.ITEMAMOUNT.checkLanguage(Settings.getLanguage()) + amount);
             }
         }
     }
@@ -320,13 +321,16 @@ public class Game
      * Shows what items and characters are in the room
      */
     private void showRoom(){
-        System.out.println(Text.SHOWROOMITEM.checkLanguage(settings.getLanguage()));
+        System.out.println(Text.SHOWROOMITEM.checkLanguage(Settings.getLanguage()));
         for(Item item : currentRoom.getItem()){
             System.out.println(item.item_getName());
         }
         System.out.println();
-        System.out.println(Text.SHOWROOMCHAR.checkLanguage(settings.getLanguage()));
+        System.out.println(Text.SHOWROOMCHAR.checkLanguage(Settings.getLanguage()));
         System.out.println(currentRoom.getCharacter().getCharacterName());
+        System.out.println();
+        System.out.println(currentRoom.getExitString());
+        
 
     }
 
@@ -344,7 +348,7 @@ public class Game
         if(!command.hasSecondWord()) 
         {
             // if there is no second word, we don't know what item to pick up
-            System.out.println(Text.PICKUPERROR.checkLanguage(settings.getLanguage()));
+            System.out.println(Text.PICKUPERROR.checkLanguage(Settings.getLanguage()));
 
         }
         int isInRoom = 0;
@@ -353,53 +357,57 @@ public class Game
         String item = command.getSecondWord();
         ArrayList<Item> roomitem = currentRoom.getItem();
         if (roomitem.isEmpty()){
-            System.out.println(Text.CANTFINDITEM.checkLanguage(settings.getLanguage()));
+            System.out.println(Text.CANTFINDITEM.checkLanguage(Settings.getLanguage()));
             isInRoom = 1;
         }
 
         for(Item item2 : roomitem){
             if(item.equals(item2.item_getName())){
                 newitem = item2;
-                if(newitem.item_getDescription() == Text.TRAP.checkLanguage(settings.getLanguage())){
-                    System.out.println(Text.FELLINTRAP.checkLanguage(settings.getLanguage()));
+                if(newitem.item_getDescription() == Text.TRAP.checkLanguage(Settings.getLanguage())){
+                    System.out.println(Text.FELLINTRAP.checkLanguage(Settings.getLanguage()));
                     player.rmLives(1);
                     amountLives();
                     isInRoom = 1;
                     break;
                 }
                 if(newitem.item_getDescription() == "You have found the key!"){
-                    newitem.item_changeName(Text.KEY.checkLanguage(settings.getLanguage()));
-                    newitem.item_changeDescription(Text.KEYDESCR.checkLanguage(settings.getLanguage()));
+                    newitem.item_changeName(Text.KEY.checkLanguage(Settings.getLanguage()));
+                    newitem.item_changeDescription(Text.KEYDESCR.checkLanguage(Settings.getLanguage()));
                     isInRoom = 1;
                 }
                 if(newitem.item_getDescription() == "You have found a candy cane! This could be usefull for later :)"){
-                    newitem.item_changeName(Text.CCNAME.checkLanguage(settings.getLanguage()));
-                    newitem.item_changeDescription(Text.CCDESCRIPTION.checkLanguage(settings.getLanguage()));
+                    newitem.item_changeName(Text.CCNAME.checkLanguage(Settings.getLanguage()));
+                    newitem.item_changeDescription(Text.CCDESCRIPTION.checkLanguage(Settings.getLanguage()));
                     isInRoom = 1;
                 }
                 if(inventory.contains(newitem)){
                     newitem.item_increaseAmount();
-                    System.out.println(Text.PICKEDUP.checkLanguage(settings.getLanguage()) + newitem.item_getName() + "!");
+                    System.out.println(Text.PICKEDUP.checkLanguage(Settings.getLanguage()) + newitem.item_getName() + "!");
                     currentRoom.unsetItem(newitem);
                     isInRoom = 1;
                     break;
                 }
-                if (currentRoom.getShortDescription() == Text.SLEEPING_ELF_ROOM.checkLanguage(settings.getLanguage()))
+                if (currentRoom.getShortDescription() == Text.SLEEPING_ELF_ROOM.checkLanguage(Settings.getLanguage()))
                 {
-                    if(newitem.item_getDescription() == Text.WATERMELON.checkLanguage(settings.getLanguage()))
+                    if(newitem.item_getDescription() == Text.WATERMELON.checkLanguage(Settings.getLanguage()))
                     {
-                        System.out.println(Text.ELFWAKES.checkLanguage(settings.getLanguage()));
-                        System.out.println(Text.ELFTALKS.checkLanguage(settings.getLanguage()));
+                        System.out.println(Text.ELFWAKES.checkLanguage(Settings.getLanguage()));
+                        System.out.println(Text.ELFTALKS.checkLanguage(Settings.getLanguage()));
                         if (inventory.contains(present))
-                            {present.item_increaseAmount();}
-                        else{inventory.add(present);}
-                        System.out.println(Text.ADDPRESENT.checkLanguage(settings.getLanguage()));
+                            {present.item_increaseAmount();
+                        }
+                        else{
+                            inventory.add(present);
+                        }
+                        System.out.println(Text.ADDPRESENT.checkLanguage(Settings.getLanguage()));
+                        currentRoom.unsetItem(newitem);
                         isInRoom = 1;
                         break;  
                     }
                     else
                     {
-                        System.out.println(Text.ELFANNOYED.checkLanguage(settings.getLanguage()));
+                        System.out.println(Text.ELFANNOYED.checkLanguage(Settings.getLanguage()));
                         player.rmLives(1);
                         amountLives();
                         isInRoom = 1;
@@ -409,7 +417,7 @@ public class Game
                     if (inventory.contains(newitem)){
                         newitem.item_increaseAmount();}
                     else{inventory.add(newitem);}        
-                    System.out.println(Text.PICKEDUP.checkLanguage(settings.getLanguage()) + newitem.item_getName() + "!");
+                    System.out.println(Text.PICKEDUP.checkLanguage(Settings.getLanguage()) + newitem.item_getName() + "!");
                     currentRoom.unsetItem(newitem);
                     isInRoom = 1;
                     break;
@@ -417,7 +425,7 @@ public class Game
             }
         }
         if (isInRoom != 1){
-            System.out.println(Text.CANTFINDITEM.checkLanguage(settings.getLanguage())); 
+            System.out.println(Text.CANTFINDITEM.checkLanguage(Settings.getLanguage())); 
         }
     }
 
@@ -425,7 +433,7 @@ public class Game
     {
         if(!command.hasSecondWord()) {
             // if there is no second word, we don't know where to go...
-            System.out.println("Use what item?");
+            System.out.println(Text.WHATITEM.checkLanguage(Settings.getLanguage()));
             return;
         }
         String theitem = command.getSecondWord();
@@ -439,8 +447,8 @@ public class Game
         }
         //player.setStrength(item.item_getUse());
         if(player.getStrength() > 1){ 
-            System.out.println(Text.STRENGTH1.checkLanguage(settings.getLanguage()));
-            System.out.println(Text.STRENGTH2.checkLanguage(settings.getLanguage()));
+            System.out.println(Text.STRENGTH1.checkLanguage(Settings.getLanguage()));
+            System.out.println(Text.STRENGTH2.checkLanguage(Settings.getLanguage()));
         }
     }
 
@@ -464,7 +472,7 @@ public class Game
      */
     private void printHelp() 
     {
-        System.out.println(Text.HELP.checkLanguage(settings.getLanguage()));
+        System.out.println(Text.HELP.checkLanguage(Settings.getLanguage()));
         parser.showCommands();
     }
 
@@ -474,7 +482,7 @@ public class Game
      */
     private void hitGrinch()
     {
-        String theitem = Text.CCSNAME.checkLanguage(settings.getLanguage());
+        String theitem = Text.CCSNAME.checkLanguage(Settings.getLanguage());
         int itemuse;
         for(Item item : inventory){
             if(item.item_getName().equals(theitem)){
@@ -485,14 +493,14 @@ public class Game
             if(grinch_hp > 0){
                 if(currentRoom.getCharacter().getCharacterName() == "Grinch"){
                     grinch_hp = grinch_hp - 1;
-                    System.out.println(Text.GRINCHFIGHT1.checkLanguage(settings.getLanguage()));
+                    System.out.println(Text.GRINCHFIGHT1.checkLanguage(Settings.getLanguage()));
                     System.out.println();
-                    System.out.println(Text.GRINCHFIGHT2.checkLanguage(settings.getLanguage()) + grinch_hp + Text.GRINCHFIGHT3.checkLanguage(settings.getLanguage()));
+                    System.out.println(Text.GRINCHFIGHT2.checkLanguage(Settings.getLanguage()) + grinch_hp + Text.GRINCHFIGHT3.checkLanguage(Settings.getLanguage()));
                     System.out.println();
                     player.rmLives(1);
-                    System.out.println(Text.GRINCHFIGHT4.checkLanguage(settings.getLanguage()));
-                    System.out.println(Text.GRINCHFIGHT5.checkLanguage(settings.getLanguage()));
-                    System.out.println(Text.GRINCHFIGHT6.checkLanguage(settings.getLanguage()) + player.getLives() + Text.GRINCHFIGHT7.checkLanguage(settings.getLanguage()));
+                    System.out.println(Text.GRINCHFIGHT4.checkLanguage(Settings.getLanguage()));
+                    System.out.println(Text.GRINCHFIGHT5.checkLanguage(Settings.getLanguage()));
+                    System.out.println(Text.GRINCHFIGHT6.checkLanguage(Settings.getLanguage()) + player.getLives() + Text.GRINCHFIGHT7.checkLanguage(Settings.getLanguage()));
                 }
             }else{
                 if(currentRoom.getCharacter().getCharacterName() == "Grinch"){
@@ -501,12 +509,12 @@ public class Game
                     currentRoom.setItem(bonusroom_items);
                 }
                 currentRoom.rmCharacter(currentRoom.getCharacter());
-                System.out.println(Text.GRINCHDEF1.checkLanguage(settings.getLanguage()));
+                System.out.println(Text.GRINCHDEF1.checkLanguage(Settings.getLanguage()));
                 System.out.println();
-                System.out.println(Text.GRINCHDEF2.checkLanguage(settings.getLanguage()));
-                System.out.println(Text.GRINCHDEF3.checkLanguage(settings.getLanguage()));
+                System.out.println(Text.GRINCHDEF2.checkLanguage(Settings.getLanguage()));
+                System.out.println(Text.GRINCHDEF3.checkLanguage(Settings.getLanguage()));
                 System.out.println();
-                System.out.println(Text.GRINCHDEF4.checkLanguage(settings.getLanguage()));
+                System.out.println(Text.GRINCHDEF4.checkLanguage(Settings.getLanguage()));
             }
         }
 
@@ -529,35 +537,36 @@ public class Game
 
         // Try to leave current room.
         Room nextRoom = currentRoom.getExit(direction);
+        int gotkey = 0;
         if (nextRoom == null) {
-            System.out.println(Text.NODOOR.checkLanguage(settings.getLanguage()));
+            System.out.println(Text.NODOOR.checkLanguage(Settings.getLanguage()));
         }else{
         if (nextRoom.isLocked() == 1)
         {
-            String theitem = Text.KEY.checkLanguage(settings.getLanguage());
-            int gotkey = 0;
+            String theitem = Text.KEY.checkLanguage(Settings.getLanguage());
             for(Item item : inventory){
                 if(item.item_getName().equals(theitem)){
-                    System.out.println(Text.UNLOCKDOOR.checkLanguage(settings.getLanguage()));
+                    System.out.println(Text.UNLOCKDOOR.checkLanguage(Settings.getLanguage()));
                     System.out.println();
                     currentRoom = nextRoom;
                     System.out.println(currentRoom.getLongDescription());
                     gotkey = 1;
+                    break;
                 }
-                if (gotkey != 0){
-                    System.out.println(Text.LOCKEDDOOR.checkLanguage(settings.getLanguage()));
-                }
+            }
+            if (gotkey != 1){
+                System.out.println(Text.LOCKEDDOOR.checkLanguage(Settings.getLanguage()));
             }
         }
         if (nextRoom.isLocked() == 300)
         {
             if(player.getStrength() == boulder){
-                System.out.println(Text.BOULDER1.checkLanguage(settings.getLanguage()));
+                System.out.println(Text.BOULDER1.checkLanguage(Settings.getLanguage()));
                 System.out.println();
                 currentRoom = nextRoom;
                 System.out.println(currentRoom.getLongDescription());
             }else{
-                System.out.println(Text.BOULDER2.checkLanguage(settings.getLanguage()));
+                System.out.println(Text.BOULDER2.checkLanguage(Settings.getLanguage()));
             }
         }
         if (nextRoom.isLocked() == 0) {
@@ -588,7 +597,7 @@ public class Game
                 if (npc2.getCharacterText() != null){
                     System.out.println(npc2.getCharacterText());
                     if(npc2.getCharacterQuestion() == null && npc2.getCharacterItem() != null){
-                        System.out.println(Text.RECEIVED.checkLanguage(settings.getLanguage()) + npc2.getCharacterItem().item_getName());
+                        System.out.println(Text.RECEIVED.checkLanguage(Settings.getLanguage()) + npc2.getCharacterItem().item_getName());
     
                         if (inventory.contains(npc2.getCharacterItem()))
                                 {present.item_increaseAmount();}
@@ -598,23 +607,23 @@ public class Game
     
                 }
                 else{
-                    System.out.println(Text.CANTTALK.checkLanguage(settings.getLanguage()));
+                    System.out.println(Text.CANTTALK.checkLanguage(Settings.getLanguage()));
                 }
             }
             else{
-            System.out.println(Text.NOTINROOM.checkLanguage(settings.getLanguage()));
+            System.out.println(Text.NOTINROOM.checkLanguage(Settings.getLanguage()));
             }
         }    
         
         
         
         
-        if(currentRoom.getShortDescription() == Text.MAINROOM.checkLanguage(settings.getLanguage())){
+        if(currentRoom.getShortDescription() == Text.MAINROOM.checkLanguage(Settings.getLanguage())){
             if (inventory.contains(present)){
                 int index = inventory.indexOf(present);
                 if  (inventory.get(index).item_getAmount() == 4)
                 {
-                    currentRoom.getCharacter().changeCharacterText(Text.SAVEDCHRISTMAS.checkLanguage(settings.getLanguage()));
+                    currentRoom.getCharacter().changeCharacterText(Text.SAVEDCHRISTMAS.checkLanguage(Settings.getLanguage()));
                 }
             }
         }
@@ -625,7 +634,7 @@ public class Game
             }
             else
             {
-              System.out.println(Text.COMPLETED.checkLanguage(settings.getLanguage()));
+              System.out.println(Text.COMPLETED.checkLanguage(Settings.getLanguage()));
             }
         }
     }
@@ -637,29 +646,29 @@ public class Game
      */
     private void askForAnswer(String question,Integer answer){
         Scanner input = new Scanner(System.in);
-        System.out.print(question + Text.YOURANSWER.checkLanguage(settings.getLanguage()));
+        System.out.print(question + Text.YOURANSWER.checkLanguage(Settings.getLanguage()));
         if (input.hasNextInt()){ 
 
             int number = input.nextInt();
-            System.out.println(Text.YOUENTERED.checkLanguage(settings.getLanguage()) + number);
+            System.out.println(Text.YOUENTERED.checkLanguage(Settings.getLanguage()) + number);
             if (number == answer){
-                System.out.println(Text.CORRECTANSWER.checkLanguage(settings.getLanguage()));
+                System.out.println(Text.CORRECTANSWER.checkLanguage(Settings.getLanguage()));
                 if(currentRoom.getCharacter().getCharacterItem() != null){
                     if (inventory.contains(present))
                             {present.item_increaseAmount();}
                     else{inventory.add(present);} 
-                    System.out.println(Text.RECEIVED.checkLanguage(settings.getLanguage()) + currentRoom.getCharacter().getCharacterItem().item_getName() + "!");
+                    System.out.println(Text.RECEIVED.checkLanguage(Settings.getLanguage()) + currentRoom.getCharacter().getCharacterItem().item_getName() + "!");
                 }else{
-                    System.out.println(Text.CHARNOITEM.checkLanguage(settings.getLanguage()));
+                    System.out.println(Text.CHARNOITEM.checkLanguage(Settings.getLanguage()));
                 }
 
             }
             else{
-                System.out.println(Text.INCORRECT.checkLanguage(settings.getLanguage()));
+                System.out.println(Text.INCORRECT.checkLanguage(Settings.getLanguage()));
             }
         }
         else{
-            System.out.println(Text.ANSWERNUMBER.checkLanguage(settings.getLanguage()));
+            System.out.println(Text.ANSWERNUMBER.checkLanguage(Settings.getLanguage()));
         }
     }
 
@@ -675,7 +684,7 @@ public class Game
             System.out.println(currentRoom.getLongDescription());
         }
         else{
-            System.out.println(Text.GOBACKTOOFAR.checkLanguage(settings.getLanguage()));
+            System.out.println(Text.GOBACKTOOFAR.checkLanguage(Settings.getLanguage()));
         }
     }
 
@@ -687,7 +696,7 @@ public class Game
     private boolean quit(Command command) 
     {
         if(command.hasSecondWord()) {
-            System.out.println(Text.QUITWHAT.checkLanguage(settings.getLanguage()));
+            System.out.println(Text.QUITWHAT.checkLanguage(Settings.getLanguage()));
             return false;
         }
         else {
@@ -698,7 +707,7 @@ public class Game
     /**
      * Lets the user see his input, used for the language selection at the start of the game.
      */
-    private void getUserinput(){
-        System.out.println(userinput);
+    private void getSelectedLanguage(){
+        System.out.println(language);
     }
 }

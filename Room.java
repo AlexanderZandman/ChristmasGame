@@ -102,9 +102,9 @@ public class Room
      * "Exits: north west".
      * @return Details of the room's exits.
      */
-    private String getExitString()
+    public String getExitString()
     {
-        String returnString = Text.EXITS.checkLanguage(Game.userinput);
+        String returnString = Text.EXITS.checkLanguage(Game.language);
         Set<String> keys = exits.keySet();
         for(String exit : keys) {
             returnString += " " + exit;

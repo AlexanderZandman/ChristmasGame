@@ -43,7 +43,7 @@ public enum CommandWord
      */
     public String toString()
     {
-        if (Game.userinput == 1){
+        if (Game.language == 1){
             return commandStringNL;
         }
         else{
