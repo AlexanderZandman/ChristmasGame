@@ -18,14 +18,16 @@ public class Character
     private Item item;
     private String question;
     private Integer answer;
+    private int status;
     /**
      * Constructor for objects of class Characters
      */
-    public Character(String name, String text, Item item)
+    public Character(String name, String text, Item item, int status)
     {
         this.name = name;
         this.text = text;
         this.item = item;
+        this.status = status;
         String question = null;
     }
     
@@ -66,4 +68,11 @@ public class Character
             return null;
         }
     }
+    
+    public int getStatus(){
+    return status;
+    }
+    
+    public void setStatus(int i){
+    this.status = i;}
 }
