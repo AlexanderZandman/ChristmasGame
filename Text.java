@@ -13,7 +13,7 @@ public enum Text{
     "In dit spel, moet je de kerstman helpen om puzzels op te lossen!\n" +
     "Typ '" + CommandWord.HELP + "' als je hulp nodig hebt"),
     MAINROOM("in the main entrance room.\nSanta is crying in the corner",
-    "in de hoofd kamer, de kerstman zit in de hoek te huilen"),
+    "in de hoofdkamer, de kerstman zit in de hoek te huilen"),
     WATERPUZZLEROOM("in a puzzle room.\n you see a table with " +
     "containers and a sink.\n An Elf is standing in front of you",
     "in een puzzel room. \n je ziet een tafel met bakjes en een kraan. \n een Elf staat voor je"),
@@ -36,8 +36,14 @@ public enum Text{
     "Je bent in een wiskunde klaslokaal. Er staat een elf, die verkleed is als een leraar, bij een bureau.\n Je kunt proberen te praten met de elf doormiddel van het commando praat_met Elf"),
     TABLE_ORDER_ROOM("You are in a room, a table stand infront of you.\nThe table contains some supplies, and an elf is standing infront of them.\nUse the talk_to Elf command for more information.", 
     "Je bent in een kamer, voor je staat een tafel.\nOp de tafel liggen er wat spullen, er staat een elf voor de tafel.\nGebruik het praat_met Elf commando voor meer informatie"),
-    UPSTAIRSROOM("Upstairs Room",
-    "Boven kamer"),
+    UPSTAIRSROOM("Upstairs Room, there seems to be nothing here but a locked door. I should probably go find a key",
+    "Boven kamer, er is hier niks behalve een gesloten deur. Ik moet waarschijnlijk ergens een sleutel gaan zoeken"),
+    BONUSROOM("You set foot in the room,\n\nan ominous aura is emitting from something directly in front of you.\n\n" + 
+    "As you walk closer you begin to see where the aura is coming from.\n\n"+ 
+    "It is the Grinch! You have to defeat him to retreive the last present\n",
+    "Je stapt de kamer binnen,\ner wordt een onheilspellende aura uitgestraald van iets wat recht voor je is.\n" +
+    "Het is de Grinch! Je moet hem verslaan om het laatste cadeautje te bemachtigen"),
+    
     ROOMDESCRIPTION("You are ",
     "Je bent "),
     COMMANDGO("go", "ga"),
@@ -67,10 +73,15 @@ public enum Text{
     UP("Up","Omhoog"),
 
     DOWN("Down","Omlaag"),
+    
+    DONTKNOW("I dont know what you mean.\nUse the command [show] to see the directions you can go",
+    "Ik weet niet wat je bedoelt.\nGebruik het commando [bekijk] om te zien welke richtingen je op kunt"),
 
     THANKS("Thank you for playing.  Good bye.",
     "Bedankt voor het spelen. Tot ziens." ),
     UNKNOWN("I don't know what you mean...","Ik begrijp je niet..."),
+    
+    GOWHERE("Go where?", "Waar wil je heen?"),
 
     LIVES1("You have ","Je hebt "),
 
@@ -225,6 +236,8 @@ public enum Text{
     CANTFINDITEM("You cannot find that item in this room.",
     "Dat voorwerp kan je niet vinden in deze kamer."),
     
+    NOSWORD("Oh no, you do not have a weapon! You quickly flee to the mainroom. Go to the armory upstairs to get a weapon", 
+    "Oh nee, je hebt geen wapen! Je vlucht snel naar de hoofdkamer. Ga naar de wapenkamer boven om een wapen te halen."),
     ADDPRESENT("You have received a Present!",
     "Je hebt een cadeautje ontvangen!"),
     
@@ -237,11 +250,14 @@ public enum Text{
     CCSDESCRIPTION("The mighty CandyCaneSword! You can use this to slay the evil Grinch", 
     "De machtige ZuurStokZwaard! Je kunt het gebruiken om de kwaadaardige Grinch te verslaan"),
     
-    GRINCHTEXT("So, you have finally found me", "Dus, je hebt mij eindelijk gevonden"),
+    GRINCHTEXT("So, you have finally found me, but you will not get this last present from me.\n\nYou will have to defeat me for it.\n\n" + 
+    "(Use attack to fight the Grinch)\n", 
+    "Dus, je hebt mij eindelijk gevonden, maar ik geef je krijgt dit laatste cadeautje niet.\n\nJe zult me moeten verslaan om het te krijgen.\n\n" + 
+    "(Gebruik het commando val_aan om met de Grinch te vechten)"),
     
     WHATITEM("What item do you want to use?", "Welk item wil je gebruiken?"),
      
-    ORDERELFQUESTION("We need to find cleaning supplies. \n" +
+    ORDERELFQUESTION("We need to find cleaning supplies. \n\n" +
             "There are 4 statements to help find the right bottle:\n" +
             "1.  Olive oil is directly left of Acid.\n" +
             "2.  Acid is next to Water.\n" +

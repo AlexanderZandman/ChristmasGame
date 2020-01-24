@@ -70,7 +70,7 @@ public class Game
         Room mathroom = new Room(Text.MATHROOM.checkLanguage(Settings.getLanguage()), 0);
         Room table_order_room = new Room(Text.TABLE_ORDER_ROOM.checkLanguage(Settings.getLanguage()), 0);
         Room upstairsroom = new Room(Text.UPSTAIRSROOM.checkLanguage(Settings.getLanguage()), 0);
-        Room bonusroom = new Room("the grinch", 300);
+        Room bonusroom = new Room(Text.BONUSROOM.checkLanguage(Settings.getLanguage()), 300);
         Room swordroom = new Room(Text.SWORDROOM.checkLanguage(Settings.getLanguage()), 1);
 
         //add items, characters and exits to rooms
@@ -166,6 +166,7 @@ public class Game
         //bonusroom
         Character grinch = new Character("Grinch", Text.GRINCHTEXT.checkLanguage(Settings.getLanguage()), null,0);
         bonusroom.setCharacter(grinch);
+        bonusroom.setExit(Text.EAST.checkLanguage(Settings.getLanguage()), mainroom);
         currentRoom = mainroom;
     }
 
@@ -175,7 +176,14 @@ public class Game
     public void play() 
     {         
         System.out.println("What language do you want to play the game in? Type 0 for English, type 1 for Dutch");
-        language = scanner.nextInt();
+        if(scanner.hasNextInt())
+        {
+            language = scanner.nextInt();
+        }
+        else
+        {
+            System.out.println("Invalid value has been entered, defaulting to English...\n");
+        }
         parser = new Parser();
         prevRooms = new ArrayList();
         Settings.setLanguage(language);
@@ -374,12 +382,12 @@ public class Game
                     isInRoom = 1;
                     break;
                 }
-                if(newitem.item_getDescription() == "You have found the key!"){
+                if(newitem.item_getDescription() == Text.FOUNDKEY.checkLanguage(Settings.getLanguage())){
                     newitem.item_changeName(Text.KEY.checkLanguage(Settings.getLanguage()));
                     newitem.item_changeDescription(Text.KEYDESCR.checkLanguage(Settings.getLanguage()));
                     isInRoom = 1;
                 }
-                if(newitem.item_getDescription() == "You have found a candy cane! This could be usefull for later :)"){
+                if(newitem.item_getDescription() == Text.FOUNDCANDYCANE.checkLanguage(Settings.getLanguage())){
                     newitem.item_changeName(Text.CCNAME.checkLanguage(Settings.getLanguage()));
                     newitem.item_changeDescription(Text.CCDESCRIPTION.checkLanguage(Settings.getLanguage()));
                     isInRoom = 1;
@@ -492,6 +500,15 @@ public class Game
                 hasSword = 1;
             }
         }
+        if(hasSword == 0)
+        {
+            System.out.println(Text.NOSWORD.checkLanguage(Settings.getLanguage()));
+            if ((prevRooms.size() > 0)){
+            currentRoom = prevRooms.get(prevRooms.size() -1);
+            prevRooms.remove(prevRooms.size() -1);
+            System.out.println(currentRoom.getLongDescription());
+            }
+        }
         if(hasSword == 1){
             if(grinch_hp > 0){
                 if(currentRoom.getCharacter().getCharacterName() == "Grinch"){
@@ -531,7 +548,7 @@ public class Game
     {
         if(!command.hasSecondWord()) {
             // if there is no second word, we don't know where to go...
-            System.out.println("Go where?");
+            System.out.println(Text.GOWHERE.checkLanguage(Settings.getLanguage()));
             return;
         }
         prevRooms.add(currentRoom);
@@ -542,7 +559,17 @@ public class Game
         Room nextRoom = currentRoom.getExit(direction);
         int gotkey = 0;
         if (nextRoom == null) {
-            System.out.println(Text.NODOOR.checkLanguage(Settings.getLanguage()));
+            if(command.getSecondWord() == Text.NORTH.checkLanguage(Settings.getLanguage()) || 
+            command.getSecondWord() == Text.WEST.checkLanguage(Settings.getLanguage()) ||
+            command.getSecondWord() == Text.SOUTH.checkLanguage(Settings.getLanguage()) ||
+            command.getSecondWord() == Text.EAST.checkLanguage(Settings.getLanguage()))
+            {
+                System.out.println(Text.NODOOR.checkLanguage(Settings.getLanguage()));
+            }
+            else
+            {
+                System.out.println(Text.DONTKNOW.checkLanguage(Settings.getLanguage()));
+            }
         }else{
         if (nextRoom.isLocked() == 1)
         {
