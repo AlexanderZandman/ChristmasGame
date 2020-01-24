@@ -145,10 +145,10 @@ public enum Text{
 
     SWORDROOM("You walk inside of a mysterious room. In front of you is a sleigh with a sword pierced through it." +
     "\nThe sword appears to be made out of Candy Canes?\n" +
-    "Use the pickup CandyCaneSword command to retreive the sword",
+    "Use the pickup Candycanesword command to retreive the sword",
     "Je loopt in een geheimzinnige kamer. Voor je is een slee met een zwaard erdoorheen gestoken.\n" +
     "Het zwaard lijkt van zuurstokken gemaakt te zijn?\n" +
-    "Gebruik het pak_op CandyCaneSword commando om het zwaard op te pakken"),
+    "Gebruik het pakop Zuurstokzwaard commando om het zwaard op te pakken"),
     
     GRINCHFIGHT1("You hit the Grinch for 1 damage!", "Je hebt de Grinch geraakt voor 1 levenspunt"),
     
@@ -245,7 +245,7 @@ public enum Text{
     
     CCDESCRIPTION("A candycane! This could be useful for later :)","Een zuurstok! Dit kan handig zijn voor later :)"),
     
-    CCSNAME("CandyCaneSword", "ZuurStokZwaard"),
+    CCSNAME("Candycanesword", "Zuurstokzwaard"),
     
     CCSDESCRIPTION("The mighty CandyCaneSword! You can use this to slay the evil Grinch", 
     "De machtige ZuurStokZwaard! Je kunt het gebruiken om de kwaadaardige Grinch te verslaan"),
@@ -278,7 +278,7 @@ public enum Text{
     "Ik moet de juiste fles vinden om deze rotzooi op te ruimen!\n " + "De kerstman heeft mij verteld welke fles ik moest gebruiken, maar ik snap re niks van, zou jij mij willen helpen alsjeblieft?"),
     
     KEYELFTEXT("I can't seem to find the key.\nThese five boxes contain items, one of them is the hidden key!\nBut the others could be traps,\nI am too afraid to open them, you have to open them for me!\nUse the pickup command, and choose between Item1, Item2, Item3, Item4 and Item5.",
-    "Ik kan nergens de sleutel vinden.\nDeze vijf dozen bevatten voorwerpen, een van die voorwerpen is de verstopte sleutel!\nMaar de anderen kunnen vallen zijn\nIk ben te bang om ze open te maken, jij moet het voor mij doen\nGebruik het pak_op commando en kies tussen Item1, Item2, Item3, Item4 en Item5."),
+    "Ik kan nergens de sleutel vinden.\nDeze vijf dozen bevatten voorwerpen, een van die voorwerpen is de verstopte sleutel!\nMaar de anderen kunnen vallen zijn\nIk ben te bang om ze open te maken, jij moet het voor mij doen\nGebruik het pakop commando en kies tussen Item1, Item2, Item3, Item4 en Item5."),
     
     MATHELFTEXT("Please help me solve this math puzzle!\n", "Alsjeblieft help mij met deze wiskunde puzzel\n"),
     

@@ -337,8 +337,10 @@ public class Game
             System.out.println(item.item_getName());
         }
         System.out.println();
-        System.out.println(Text.SHOWROOMCHAR.checkLanguage(Settings.getLanguage()));
-        System.out.println(currentRoom.getCharacter().getCharacterName());
+        if(currentRoom.getCharacter() != null){
+            System.out.println(Text.SHOWROOMCHAR.checkLanguage(Settings.getLanguage()));
+            System.out.println(currentRoom.getCharacter().getCharacterName());
+        }
         System.out.println();
         System.out.println(currentRoom.getExitString());
         
